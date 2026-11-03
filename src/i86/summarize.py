@@ -277,9 +277,9 @@ def pool(graph: Graph, runs: dict[str, Forecasts], n: int = 20000, seed: int = 0
         effects = [r["nodes"][key]["cutoff_effect"] for r in per_run.values()]
         entry["cutoff_effect"] = float(np.mean(effects))
         entry["cutoff_effect_by_run"] = dict(zip(per_run, effects))
-        # Expected change in this outcome from one Yes ballot: each forecaster's chance that the
-        # ballot decides the measure times that forecaster's cutoff effect, averaged. Undefined for
-        # the vote itself and for Denver's same-day result.
+        # Expected change in this outcome from one Hinojosa ballot: each forecaster's chance that the
+        # ballot decides the race times that forecaster's cutoff effect, averaged. Undefined for the
+        # vote module: the governor's vote, turnout and the same-day Senate race.
         owner = graph.owner(key)
         entry["per_dem_ballot"] = (
             None if owner.module == "vote" else float(np.mean([p * e for p, e in zip(p_dec, effects)]))
