@@ -1,0 +1,32 @@
+{
+  "backend": "subfleet",
+  "command": [
+    "subfleet",
+    "run",
+    "--task",
+    "research",
+    "--tier",
+    "standard",
+    "-m",
+    "opus",
+    "-s",
+    "read-only",
+    "-C",
+    "/Users/maxghenis/.cache/tx-gov-datacenter-forecast/opus-4",
+    "-p",
+    "/Users/maxghenis/tx-gov-datacenter-forecast/runs/opus-4/prompt.md",
+    "-n",
+    "txdc-opus-4",
+    "--json"
+  ],
+  "dispatch_rc": 0,
+  "dispatch_stdout": "{\"created\": true, \"detached\": true, \"job_id\": \"20261103-121338-txdc-opus-4\", \"lane\": null, \"log\": \"/Users/maxghenis/.subfleet/jobs/20261103-121338-txdc-opus-4/a1/lane.log\", \"model\": null, \"out\": \"/Users/maxghenis/.subfleet/jobs/20261103-121338-txdc-opus-4/a1/deliverable.md\", \"outcome\": \"created\", \"reason\": \"inside a Claude session \\u2014 the job must outlive it\", \"requeried\": false, \"request_id\": \"6b142cf4-a4ab-4298-b12f-4d25015886bb\", \"run_id\": \"20261103-121338-txdc-opus-4\", \"sandbox\": \"read-only\", \"state\": null, \"wait_inline\": false, \"worktree\": null}\n",
+  "dispatched_at": "2026-11-03T17:13:38Z",
+  "job_id": "20261103-121338-txdc-opus-4",
+  "label": "opus-4",
+  "model_pin": "opus",
+  "prepared_at": "2026-11-03T17:13:38Z",
+  "prompt_sha256": "e58beb9f1f37a8a18270f74ae665485bf36ace8ea6d37de296b84220ee709237",
+  "tier": "standard",
+  "workdir": "/Users/maxghenis/.cache/tx-gov-datacenter-forecast/opus-4"
+}
