@@ -1,0 +1,483 @@
+{
+ "forecaster": {
+  "model": null,
+  "prior_context": null,
+  "notes": null
+ },
+ "research_summary": null,
+ "nodes": {
+  "dem_share": {
+   "forecasts": {
+    "all": {
+     "le_38": null,
+     "le_40": null,
+     "le_42": null,
+     "le_44": null,
+     "le_45": null,
+     "le_46": null,
+     "le_47": null,
+     "le_48": null,
+     "le_49": null,
+     "le_50": null,
+     "le_51": null,
+     "le_52": null,
+     "le_53": null,
+     "le_54": null,
+     "le_55": null,
+     "le_56": null,
+     "le_58": null,
+     "le_60": null,
+     "le_62": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "turnout": {
+   "forecasts": {
+    "all": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "senate_dem_share": {
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "ercot_pause_lifted": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": null
+    },
+    "dem_47.0": {
+     "p": null
+    },
+    "dem_49.5": {
+     "p": null
+    },
+    "dem_50.5": {
+     "p": null
+    },
+    "dem_53.0": {
+     "p": null
+    },
+    "dem_56.0": {
+     "p": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "special_session_data_centers": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": null
+    },
+    "dem_47.0": {
+     "p": null
+    },
+    "dem_49.5": {
+     "p": null
+    },
+    "dem_50.5": {
+     "p": null
+    },
+    "dem_53.0": {
+     "p": null
+    },
+    "dem_56.0": {
+     "p": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "tax_exemption_cut": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": null
+    },
+    "dem_47.0": {
+     "p": null
+    },
+    "dem_49.5": {
+     "p": null
+    },
+    "dem_50.5": {
+     "p": null
+    },
+    "dem_53.0": {
+     "p": null
+    },
+    "dem_56.0": {
+     "p": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "restriction_law": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": null
+    },
+    "dem_47.0": {
+     "p": null
+    },
+    "dem_49.5": {
+     "p": null
+    },
+    "dem_50.5": {
+     "p": null
+    },
+    "dem_53.0": {
+     "p": null
+    },
+    "dem_56.0": {
+     "p": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "ercot_approved_mw_2027": {
+   "baseline": {
+    "value": null,
+    "as_of": null,
+    "source": null
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "ercot_approved_mw_2028": {
+   "baseline": {
+    "value": null,
+    "as_of": null,
+    "source": null
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "comptroller_new_projects_2027": {
+   "baseline": {
+    "value": null,
+    "as_of": null,
+    "source": null
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "us_dc_spending_2027": {
+   "baseline": {
+    "value": null,
+    "as_of": null,
+    "source": null
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "us_dc_spending_2028": {
+   "baseline": {
+    "value": null,
+    "as_of": null,
+    "source": null
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_47.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_49.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_50.5": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_53.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    },
+    "dem_56.0": {
+     "p05": null,
+     "p25": null,
+     "p50": null,
+     "p75": null,
+     "p95": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  },
+  "other_state_moratorium": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": null
+    },
+    "dem_47.0": {
+     "p": null
+    },
+    "dem_49.5": {
+     "p": null
+    },
+    "dem_50.5": {
+     "p": null
+    },
+    "dem_53.0": {
+     "p": null
+    },
+    "dem_56.0": {
+     "p": null
+    }
+   },
+   "reasoning": null,
+   "sources": []
+  }
+ }
+}

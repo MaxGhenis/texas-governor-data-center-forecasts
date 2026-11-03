@@ -1,0 +1,219 @@
+# The causal map the forecasters fill in.
+#
+# Each node is one forecast question with an absolute unit. `given: {cells: all}` means a node is
+# forecast at every cell: a certified two-party share for Gina Hinojosa, the Democratic nominee for
+# governor, of 44%, 47%, 49.5%, 50.5%, 53% or 56%. Three cells lie on each side of 50%, so a line fits
+# each side through three points, and the 49.5% and 50.5% cells give the contrast at the cutoff: a bare
+# Hinojosa loss against a bare Hinojosa win.
+#
+# The machinery keeps the names of the ballot-measure map it was built on: the `fail` cells are
+# Abbott wins, the `pass` cells Hinojosa wins, and `passes` in a condition means Hinojosa wins. This
+# map uses no conditions, states or derived nodes.
+
+measure: "The 2026 Texas governor's race: Gina Hinojosa (Democrat) against Greg Abbott (Republican)"
+election_date: "2026-11-03"
+as_of: "2026-11-03"
+generated_for: "pre-registration before Texas polls close on 2026-11-03"
+
+cells:
+  fail: [0.44, 0.47, 0.495]
+  pass: [0.505, 0.53, 0.56]
+
+# Close bands used in summaries: Hinojosa wins narrowly (Yc) or loses narrowly (Nc).
+bands:
+  Yc: [0.50, 0.53]   # 0.50 < share <= 0.53
+  Nc: [0.47, 0.50]   # 0.47 <= share <= 0.50
+
+quantiles: [0.05, 0.25, 0.50, 0.75, 0.95]
+
+# Section titles, in the order the prompt and the report show them.
+modules:
+  vote: "The vote"
+  policy: "What the state does about data centers"
+  texas: "Data center construction in Texas"
+  national: "Data center construction nationwide"
+
+# Hinojosa two-party shares at which forecasters give the cumulative probability for `dem_share`.
+share_grid: [0.38, 0.40, 0.42, 0.44, 0.45, 0.46, 0.47, 0.48, 0.49, 0.50, 0.51, 0.52, 0.53, 0.54, 0.55, 0.56, 0.58, 0.60, 0.62]
+# Mass outside the grid is spread linearly down to `share_floor` and up to `share_ceiling`.
+share_floor: 0.30
+share_ceiling: 0.70
+
+nodes:
+
+  # Vote
+
+  - id: dem_share
+    kind: share_cdf
+    module: vote
+    question: "Gina Hinojosa's certified share of the two-party vote for governor."
+    resolution: >-
+      The official canvass of the 2026-11-03 general election for governor, as the Texas Secretary of
+      State publishes it: Hinojosa's votes divided by Hinojosa's votes plus Greg Abbott's. Votes for
+      other candidates are left out.
+    scored: true
+
+  - id: turnout
+    kind: quantity
+    module: vote
+    unit: "votes (Hinojosa plus Abbott)"
+    integer: true
+    bounds: [5000000, 14000000]
+    question: "Votes for Hinojosa plus votes for Abbott."
+    resolution: "The official canvass, as for dem_share."
+    scored: true
+
+  - id: senate_dem_share
+    kind: quantity
+    module: vote
+    unit: "percent of the two-party vote"
+    bounds: [30, 70]
+    given: {cells: all}
+    question: "James Talarico's certified share of the two-party vote for US Senate in Texas."
+    resolution: >-
+      The official canvass of the 2026-11-03 general election for US Senate, as the Texas Secretary of
+      State publishes it: Talarico's votes divided by Talarico's votes plus Ken Paxton's, as a percent.
+    scored: true
+
+  # What the state does about data centers
+
+  - id: ercot_pause_lifted
+    kind: binary
+    module: policy
+    given: {cells: all}
+    question: "By 2027-06-30, ERCOT resumes approving new data center Large Loads to energize."
+    resolution: >-
+      Between 2026-11-04 and 2027-06-30, ERCOT resumes giving Approval to Energize to data center Large
+      Loads (75 MW or more) that were not energized when it paused those approvals on 2026-08-03, as an
+      ERCOT market notice, board or TAC presentation, or Large Load Interconnection Status Update shows.
+      Approvals only for loads that pass the verification and audit count; approvals only in emergencies
+      do not. Sources: ERCOT market notices and Large Load reports (ercot.com); PUCT filings.
+    scored: true
+
+  - id: special_session_data_centers
+    kind: binary
+    module: policy
+    given: {cells: all}
+    question: "The governor calls a special session that takes up data centers, by 2027-12-31."
+    resolution: >-
+      Between 2026-11-04 and 2027-12-31, the governor issues a proclamation convening a special session
+      of the Legislature, or adding to one, that names data centers or large electric loads among its
+      subjects. Abbott serves until his successor takes office in January 2027, so his calls count.
+      Sources: the governor's proclamations (gov.texas.gov); the Texas Register; Texas Legislature
+      Online.
+    scored: true
+
+  - id: tax_exemption_cut
+    kind: binary
+    module: policy
+    given: {cells: all}
+    question: "By 2027-12-31, Texas enacts a law that repeals or narrows its data center sales tax exemptions."
+    resolution: >-
+      Between 2026-11-04 and 2027-12-31, a bill becomes law (signed, left unsigned past the deadline, or
+      passed over a veto) that does at least one of these to the exemptions for qualifying data centers
+      and qualifying large data center projects (Tax Code sections 151.359 and 151.3595): repeals
+      either; closes either to new certifications; shortens either's exemption period; takes electricity
+      out of either; or narrows the purchases either covers. A law that only adds reporting, audits or
+      clawbacks does not count. Sources: Texas Legislature Online; the Tax Code; the Comptroller's data
+      center pages.
+    scored: true
+
+  - id: restriction_law
+    kind: binary
+    module: policy
+    given: {cells: all}
+    question: "By 2027-12-31, Texas enacts a law that adds limits on building or connecting data centers."
+    resolution: >-
+      Between 2026-11-04 and 2027-12-31, a bill becomes law that, for data centers or for electric loads
+      of 75 MW or more, adds at least one of: a moratorium or pause on new interconnections or
+      energizations; a state or local approval, siting or zoning requirement; a limit, fee or permit on
+      water use; an interconnection fee or required payment toward grid costs beyond those in Senate
+      Bill 6 (2025); or a cap on power use. Laws that only require reporting or studies, and changes to
+      the sales tax exemptions alone, do not count. Sources: Texas Legislature Online; the Texas
+      statutes.
+    scored: true
+
+  # Data center construction in Texas
+
+  - id: ercot_approved_mw_2027
+    kind: quantity
+    module: texas
+    unit: "MW"
+    bounds: [3000, 150000]
+    baseline: true
+    given: {cells: all}
+    question: "Large Load MW with ERCOT's Approval to Energize, at the end of 2027."
+    resolution: >-
+      The MW of Large Loads (75 MW or more, all project types) that have received Approval to Energize,
+      Observed Energized and Approved to Energize but Not Operational together, in the last Large Load
+      Interconnection Status Update ERCOT publishes in 2027, or the report that replaces it. The March
+      13, 2026 update gave 9,042 MW.
+    scored: true
+
+  - id: ercot_approved_mw_2028
+    kind: quantity
+    module: texas
+    unit: "MW"
+    bounds: [3000, 200000]
+    baseline: true
+    given: {cells: all}
+    question: "Large Load MW with ERCOT's Approval to Energize, at the end of 2028."
+    resolution: "As for ercot_approved_mw_2027, in the last update ERCOT publishes in 2028."
+    scored: true
+
+  - id: comptroller_new_projects_2027
+    kind: quantity
+    module: texas
+    unit: "projects"
+    integer: true
+    bounds: [0, 400]
+    baseline: true
+    given: {cells: all}
+    question: "Data center projects the Comptroller registers for the sales tax exemptions with an effective date in 2027."
+    resolution: >-
+      Entries on the Texas Comptroller's lists of Registered Qualifying Data Center Projects and
+      Registered Qualifying Large Data Center Projects
+      (comptroller.texas.gov/taxes/data-centers/data-center-lists.php) with an Effective Date from
+      2027-01-01 to 2027-12-31, counted on 2028-03-31. If the lists stop being published, the count the
+      Comptroller reports for that period. Baseline: entries with an Effective Date in 2026 on the day
+      you look.
+    scored: true
+
+  # Data center construction nationwide
+
+  - id: us_dc_spending_2027
+    kind: quantity
+    module: national
+    unit: "billions of current dollars"
+    bounds: [10, 400]
+    baseline: true
+    given: {cells: all}
+    question: "US private construction spending on data centers in 2027."
+    resolution: >-
+      The annual value of private construction put in place for data centers in calendar 2027, in the
+      Census Bureau's Construction Spending tables (the 'Data center' line of the private series), as
+      first published in the release of July 2028.
+    scored: true
+
+  - id: us_dc_spending_2028
+    kind: quantity
+    module: national
+    unit: "billions of current dollars"
+    bounds: [10, 600]
+    baseline: true
+    given: {cells: all}
+    question: "US private construction spending on data centers in 2028."
+    resolution: "As for us_dc_spending_2027, for calendar 2028, as first published in the release of July 2029."
+    scored: true
+
+  - id: other_state_moratorium
+    kind: binary
+    module: national
+    given: {cells: all}
+    question: "A US state other than Texas enacts a statewide moratorium on new data centers by 2027-12-31."
+    resolution: >-
+      Between 2026-11-04 and 2027-12-31, a state other than Texas enacts a law, or its governor or a
+      statewide agency issues an order, that for a period bars new data centers, or new connections or
+      approvals for data centers, across the state. Moratoria by counties, cities or single utilities do
+      not count. Sources: state legislative records; governors' orders; news.
+    scored: true
