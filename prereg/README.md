@@ -40,8 +40,9 @@ With those flags, every output matches the pooled folder's byte for byte except 
 `2026-11-03-dispatch/SHA256SUMS.ots` holds the proof as `ots upgrade` completed it, with
 attestations from four calendars; the earliest sits in Bitcoin block 974415, mined at 17:20:45Z on
 11/03, before any run started. The collected and pooled proofs sit in block 974441, mined at
-21:28:20Z on 11/03, before Texas polls close at 01:00Z on 11/04. Each upgraded proof replaced a
-pending proof of the same manifest. The codex-sessions and repooled proofs await their blocks.
+21:28:20Z on 11/03, before Texas polls close at 01:00Z on 11/04, and the codex-sessions proof sits
+in block 974445, mined at 22:00:55Z. Each upgraded proof replaced a pending proof of the same
+manifest. The repooled proof awaits its block.
 
 To check a manifest, run `shasum -a 256 -c prereg/<folder>/SHA256SUMS` from the repository root; it
 lists any file whose bytes have changed. Against today's files, the pooled and codex-sessions
