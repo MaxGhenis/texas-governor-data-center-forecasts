@@ -41,6 +41,21 @@ forecasters gave.
 alone in an empty directory on a Subfleet lane with a read-only sandbox. Runs of one model share its
 training and often its answers, so the results appear by model as well as pooled.
 
+**Headline measures.** Fixed after dispatch and before anyone read an answer (only format checks had
+run); the commit that added this paragraph records when. For each policy and construction question
+the write-up reports:
+
+1. the cutoff effect: the pooled mean at 50.5% minus the pooled mean at 49.5% (`outputs/summary.md`);
+2. the same contrast in each run's raw answers, and the fitted jump, the gap at 50% between lines
+   through the three cells on each side (`outputs/rd.md`);
+3. the change from 44% to 56%, and its within-sides part, the change that the margin carries beyond
+   who wins;
+4. each of these for Opus and for Sol separately, with the range across runs.
+
+For the placebo it reports Talarico's fitted jump, by model. A forecaster who adds nothing for who
+won the governor's race gives a fitted jump near zero. Answers that fail `check` stay out, and fresh
+runs under new labels replace them until 23:00Z.
+
 **Pooling.** `src/i86/simulate.py` runs a Monte Carlo through the map for each forecaster. A draw takes
 Hinojosa's share from that forecaster's own distribution, or fixes it at a cell, and interpolates each
 answer between the cells on the same side of 50%, never mixing a winning cell with a losing one. Each
