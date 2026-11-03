@@ -1,0 +1,20 @@
+{
+ "events": 32,
+ "tool_calls": 12,
+ "web_calls": 12,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://gov.texas.gov/news/post/governor-abbott-directs-puc-and-ercot-to-shield-texans-from-data-center-infrastructure-costs",
+  "https://lrl.texas.gov/sessions/sessionYears.cfm",
+  "https://www.census.gov/construction/c30/pdf/privsa.pdf",
+  "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+  "search: ",
+  "search: Texas Legislature special sessions 2023 2025 number Abbott special session before:2026-11-04 ...",
+  "search: Texas data centers sales tax exemption repeal Hinojosa Abbott October 2026 before:2026-11-04 ...",
+  "search: site.gov.texas.gov Abbott data center regulations eliminating sales tax exemption June July 2026 ..."
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

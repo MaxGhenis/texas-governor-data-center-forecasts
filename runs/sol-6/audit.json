@@ -1,0 +1,19 @@
+{
+ "events": 23,
+ "tool_calls": 8,
+ "web_calls": 8,
+ "urls": [
+  "https://ginafortexas.com/priority/data-centers/",
+  "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+  "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+  "https://www.factiq.com/series/census::vip_c30.private_office_data_center_sa",
+  "https://www.factiq.com/updates/us-construction-spending-september-2026-down-1-9-on-housing-as-data-centers-grow-1372",
+  "search: ",
+  "search: Texas data center moratorium Gina Hinojosa Abbott October 2026 campaign electricity tax exemption ...",
+  "search: site.hinojosafortexas.com data centers 2026 ..."
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

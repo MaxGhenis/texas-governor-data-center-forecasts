@@ -1,0 +1,28 @@
+{
+ "events": 94,
+ "tool_calls": 17,
+ "web_calls": 17,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2026/07/28/texas-lawmakers-weigh-future-of-data-center-tax-breaks",
+  "https://www.neoteo.com/en/us-data-center-construction-hit-a-reported-record-annual-pace-in-august",
+  "search: \"data center\" construction spending Census September 2026 seasonally adjusted annual rate",
+  "search: Abbott Hinojosa poll October 2026",
+  "search: Abbott data center special session OR \"legislative priorities\" data centers repeal tax exemption Hinojosa",
+  "search: Census construction spending data center annual rate 2026 billion",
+  "search: Dan Patrick data centers tax exemption 2027 session priority",
+  "search: ERCOT data center pause Approval to Energize audit Abbott October 2026",
+  "search: ERCOT large load interconnection status update approved to energize MW October 2026",
+  "search: Hinojosa data centers sales tax exemption pause position",
+  "search: Hochul data center moratorium bill signed or vetoed",
+  "search: New York data center moratorium bill S10642 Hochul October 2026",
+  "search: Talarico Paxton poll Senate Texas late October 2026",
+  "search: Texas 2026 early voting final total turnout November general October 30",
+  "search: Texas early voting turnout 2026 total votes cast final day",
+  "search: state data center moratorium bill legislature 2026 statewide"
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

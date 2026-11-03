@@ -1,0 +1,26 @@
+{
+ "events": 73,
+ "tool_calls": 15,
+ "web_calls": 15,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf",
+  "https://www.fox4news.com/news/texas-gov-abbott-calls-regulations-data-centers-contrasting-previous-stance",
+  "https://www.hppr.org/hppr-news/2026-10-27/texas-early-voting-rate-is-slightly-behind-2018-when-beto-orourke-challenged-ted-cruz",
+  "search: Abbott Hinojosa poll October 2026",
+  "search: Census construction spending data center annual rate September 2026",
+  "search: ERCOT \"approved to energize\" large load MW October 2026 TAC report",
+  "search: ERCOT Large Load Interconnection Status Update approved to energize MW 2026",
+  "search: ERCOT data center pause lift audit community impact review November 2026",
+  "search: ERCOT data center pause verification audit report December 2026",
+  "search: Hochul data center moratorium bill sign veto",
+  "search: Talarico Paxton poll late October 2026",
+  "search: Texas data center sales tax exemption repeal 2027 legislature Abbott Hinojosa data centers",
+  "search: Texas early voting turnout 2026 general election total",
+  "search: state data center moratorium bill statewide 2026 legislature passed"
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

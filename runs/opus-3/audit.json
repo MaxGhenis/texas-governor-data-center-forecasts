@@ -1,0 +1,22 @@
+{
+ "events": 63,
+ "tool_calls": 11,
+ "web_calls": 11,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://www.rockinst.org/blog/updates-on-the-cloud-more-moratoriums-on-data-centers/",
+  "search: Abbott Hinojosa poll October 2026",
+  "search: Census construction spending data center annual rate August 2026",
+  "search: ERCOT TAC large load interconnection status update \"approved to energize\" 2026 MW August OR September OR October",
+  "search: ERCOT large load interconnection status update approved to energize MW October 2026",
+  "search: Hinojosa data centers ERCOT pause Abbott audit tax exemption campaign",
+  "search: Talarico Paxton poll Senate Texas late October 2026",
+  "search: Texas data center sales tax exemption cost comptroller 2027 legislature repeal",
+  "search: Texas early voting turnout 2026 general election total",
+  "search: state data center moratorium bill statewide 2026 legislature passed"
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

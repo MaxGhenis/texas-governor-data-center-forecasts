@@ -1,5 +1,7 @@
 {
+  "attempt_id": "20261103-131055-txdc-opus-7/a1",
   "backend": "subfleet",
+  "collected_at": "2026-11-03T20:50:51Z",
   "command": [
     "subfleet",
     "run",
@@ -22,11 +24,19 @@
   "dispatch_rc": 0,
   "dispatch_stdout": "{\"created\": true, \"detached\": true, \"job_id\": \"20261103-131055-txdc-opus-7\", \"lane\": null, \"log\": \"/Users/maxghenis/.subfleet/jobs/20261103-131055-txdc-opus-7/a1/lane.log\", \"model\": null, \"out\": \"/Users/maxghenis/.subfleet/jobs/20261103-131055-txdc-opus-7/a1/deliverable.md\", \"outcome\": \"created\", \"reason\": \"inside a Claude session \\u2014 the job must outlive it\", \"requeried\": false, \"request_id\": \"dcf62a61-0773-4613-ac25-cb4b104e67c9\", \"run_id\": \"20261103-131055-txdc-opus-7\", \"sandbox\": \"read-only\", \"state\": null, \"wait_inline\": false, \"worktree\": null}\n",
   "dispatched_at": "2026-11-03T18:10:55Z",
+  "finished_at": "2026-11-03T18:26:39Z",
   "job_id": "20261103-131055-txdc-opus-7",
   "label": "opus-7",
+  "lane_id": "claude-19",
   "model_pin": "opus",
+  "model_served": "claude-opus-5-5",
   "prepared_at": "2026-11-03T18:10:55Z",
+  "prompt_sent_sha256": "50130ec4411987d5e2fa873fbfdcc1b8aaedc9699522c0000575c9a76b51efc0",
   "prompt_sha256": "e58beb9f1f37a8a18270f74ae665485bf36ace8ea6d37de296b84220ee709237",
+  "state": "succeeded",
   "tier": "standard",
+  "transcript": "/Users/maxghenis/tx-gov-datacenter-forecast/runs/opus-7/transcript.jsonl",
+  "transcript_original": "/Users/maxghenis/.subfleet/jobs/20261103-131055-txdc-opus-7/a1/stdout",
+  "transcript_sha256": "f8c5a4c8145f5cedb93658e1896c2b8ece0fb33029fdadbf71066cb9411f00a7",
   "workdir": "/Users/maxghenis/.cache/tx-gov-datacenter-forecast/opus-7"
 }

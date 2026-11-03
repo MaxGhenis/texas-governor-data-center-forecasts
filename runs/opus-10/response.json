@@ -1,0 +1,534 @@
+{
+ "forecaster": {
+  "model": "claude-opus-5-5",
+  "prior_context": "none",
+  "notes": "I saw no vote counts or results from the 2026-11-03 election. The only turnout data I used was early voting: about 4.5M ballots in the first 7 days, 23.4% of 19M registered voters. The session was in plan mode, so I wrote no files and used only read-only web research. Three figures could not be confirmed against primary sources. The ERCOT Approval-to-Energize total is the June 2026 Monthly Operational Overview value (8,926 MW); I found no October status update. The August 2026 Census figure of about $85B SAAR for data centers comes from secondary reporting (Wolf Street). The Comptroller count of 61 projects effective in 2026 was tallied by a fetch tool from the live list."
+ },
+ "research_summary": "Governor polls from October have Abbott ahead by 1-3 points head-to-head: TSU 50-47, TPOR 51-48, UH 49-46, ReconMR 48-47, YouGov Hinojosa 48-47. The PollCheck average is Abbott 48.8, Hinojosa 46.3. Texas polls have understated Republicans by 2-4 points of margin since 2018, so I center Hinojosa's two-party share near 47.8%, which gives her about a 20% chance of winning. Talarico polls 1-3 points better than Hinojosa against Paxton (UH: Talarico 48-46; Quantus: Paxton 48.7-47.6). Through the first 7 days of early voting, turnout ran slightly behind 2018's pace as a share of registered voters, on a record 19M registered (Derek Ryan projects up to about 10M voters). On data centers: in June 2026 Abbott asked lawmakers to regulate them broadly and to repeal the sales tax exemption, which costs about $3.2-3.3B per biennium. Patrick's interim charges and a Senate Finance hearing on July 28 put the exemption under review. On 2026-08-03 Abbott paused ERCOT energization approvals pending audits, which are due 2026-12-10. Hinojosa wants a fuller halt until lawmakers write rules. Approval-to-Energize has held near 9 GW (9,042 MW in March, 8,926 MW in June 2026). Batch Zero has 66 GW conditionally classified as base load, and the transmission plan is due in fall 2027. The Comptroller lists 61 projects effective in 2026 so far, against 49 in 2025 and 24 in 2024. Census data-center construction rose from a $50.7B SAAR in April 2026 to about $75B in July and about $85B in August. In other states, New York's legislature passed a one-year moratorium on data centers of 20 MW or more; Hochul issued a 50 MW executive order on 2026-07-14 and must act on the bill by year-end. Maine's moratorium was vetoed in April 2026, but its governor supports a temporary pause.",
+ "nodes": {
+  "dem_share": {
+   "forecasts": {
+    "all": {
+     "le_38": 0.003,
+     "le_40": 0.007,
+     "le_42": 0.02,
+     "le_44": 0.075,
+     "le_45": 0.14,
+     "le_46": 0.245,
+     "le_47": 0.38,
+     "le_48": 0.53,
+     "le_49": 0.68,
+     "le_50": 0.8,
+     "le_51": 0.89,
+     "le_52": 0.945,
+     "le_53": 0.975,
+     "le_54": 0.988,
+     "le_55": 0.994,
+     "le_56": 0.997,
+     "le_58": 0.999,
+     "le_60": 0.9995,
+     "le_62": 0.9998
+    }
+   },
+   "reasoning": "In October polls Hinojosa averages about 48.5% of the two-party vote. Texas polls have understated Republicans by roughly 1 point of two-party share in each cycle since 2018. A midterm under a Republican president helps Democrats, but the polls mostly already reflect that. I center her at 47.8% with an SD of about 2.6 and slightly fat tails, giving her about a 20% chance of winning. For comparison, Beto O'Rourke's two-party share was 44.0% in 2022 and Lupe Valdez's was 42.9% in 2018.",
+   "sources": [
+    "https://www.fox7austin.com/news/texas-governor-poll-abbott-hinojosa",
+    "https://www.pollcheck.co.uk/us-midterms-2026/governor/texas",
+    "https://www.newsweek.com/greg-abbott-chances-gina-hinojosa-flip-texas-poll-12559858"
+   ]
+  },
+  "turnout": {
+   "forecasts": {
+    "all": {
+     "p05": 8200000,
+     "p25": 8800000,
+     "p50": 9200000,
+     "p75": 9600000,
+     "p95": 10200000
+    }
+   },
+   "reasoning": "There are 19M registered voters. After 7 days, 23.4% had voted, slightly behind 2018's 24.3%. In 2018, 53% of 15.8M registered voters turned out, about 8.37M votes. Turnout of 48-52% of 19M is about 9.1-9.9M ballots. About 97-98% of those will go to the two major-party candidates, plus a small undervote. Ryan's projection of up to 10M voters is an upper anchor.",
+   "sources": [
+    "https://www.hppr.org/hppr-news/2026-10-27/texas-early-voting-rate-is-slightly-behind-2018-when-beto-orourke-challenged-ted-cruz",
+    "https://fox4news.com/news/dallas-county-early-voting-2026-day-one-total"
+   ]
+  },
+  "senate_dem_share": {
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 43.3,
+     "p25": 44.9,
+     "p50": 45.7,
+     "p75": 46.5,
+     "p95": 47.9
+    },
+    "dem_47.0": {
+     "p05": 46.2,
+     "p25": 47.8,
+     "p50": 48.6,
+     "p75": 49.4,
+     "p95": 50.8
+    },
+    "dem_49.5": {
+     "p05": 48.6,
+     "p25": 50.2,
+     "p50": 51.0,
+     "p75": 51.8,
+     "p95": 53.2
+    },
+    "dem_50.5": {
+     "p05": 49.5,
+     "p25": 51.1,
+     "p50": 51.9,
+     "p75": 52.7,
+     "p95": 54.1
+    },
+    "dem_53.0": {
+     "p05": 51.8,
+     "p25": 53.4,
+     "p50": 54.2,
+     "p75": 55.0,
+     "p95": 56.4
+    },
+    "dem_56.0": {
+     "p05": 54.6,
+     "p25": 56.2,
+     "p50": 57.0,
+     "p75": 57.8,
+     "p95": 59.3
+    }
+   },
+   "reasoning": "In Texas, the governor and Senate races on the same ballot usually land within about 1-3 points of each other. Talarico has consistently polled 1-2 points better than Hinojosa, and Paxton is the weaker Republican, so I put the Senate share about 1.5 points above the governor share. The gap narrows slightly at the extremes, with residual SD about 1.",
+   "sources": [
+    "https://www.fox4news.com/election/talarico-paxton-texas-senate-poll-october",
+    "https://www.fox26houston.com/news/paxton-slips-past-talarico-latest-poll-senate-race-enters-final-days",
+    "https://www.pollcheck.co.uk/us-midterms-2026/senate/texas"
+   ]
+  },
+  "ercot_pause_lifted": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": 0.72
+    },
+    "dem_47.0": {
+     "p": 0.7
+    },
+    "dem_49.5": {
+     "p": 0.66
+    },
+    "dem_50.5": {
+     "p": 0.42
+    },
+    "dem_53.0": {
+     "p": 0.38
+    },
+    "dem_56.0": {
+     "p": 0.35
+    }
+   },
+   "reasoning": "The pause depends on the audit reports due 2026-12-10. Once the election is over, a re-elected Abbott and his PUCT would likely let verified loads proceed during the 2027 session, under economic pressure from 66 GW of base load already in Batch Zero. Hinojosa has called for a halt until lawmakers write rules. As governor she would control PUCT appointments and would likely keep the pause until legislation passes after May 31, so resumption by June 30 is less likely.",
+   "sources": [
+    "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+    "https://www.axios.com/local/san-antonio/2026/08/03/greg-abbott-halts-texas-data-centers-electric-grid",
+    "https://www.fox7austin.com/news/hinojosa-urges-gov-abbott-pause-new-data-centers-until-lawmakers-act.amp",
+    "https://texasstandard.org/stories/gov-abbott-has-ordered-a-pause-on-data-center-approvals-will-it-make-a-difference/"
+   ]
+  },
+  "special_session_data_centers": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": 0.17
+    },
+    "dem_47.0": {
+     "p": 0.18
+    },
+    "dem_49.5": {
+     "p": 0.2
+    },
+    "dem_50.5": {
+     "p": 0.33
+    },
+    "dem_53.0": {
+     "p": 0.35
+    },
+    "dem_56.0": {
+     "p": 0.37
+    }
+   },
+   "reasoning": "Texas often holds special sessions (four in 2023, two in 2025). However, data centers will be on the 2027 regular-session agenda with both parties' leaders engaged, so a special session is mainly a fallback if bills die. Abbott, with an aligned legislature, would likely get his priorities passed in the regular session. A Governor Hinojosa facing a Republican legislature would face more gridlock and has a strong incentive to call lawmakers back on her signature issue.",
+   "sources": [
+    "https://www.ksat.com/news/texas/2026/06/10/abbott-recommends-sweeping-data-center-regulation-including-eliminating-sales-tax-exemption/",
+    "https://www.fox4news.com/news/hinojosa-challenges-abbott-data-center-policies-during-campaign-stop"
+   ]
+  },
+  "tax_exemption_cut": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": 0.72
+    },
+    "dem_47.0": {
+     "p": 0.72
+    },
+    "dem_49.5": {
+     "p": 0.71
+    },
+    "dem_50.5": {
+     "p": 0.68
+    },
+    "dem_53.0": {
+     "p": 0.68
+    },
+    "dem_56.0": {
+     "p": 0.69
+    }
+   },
+   "reasoning": "Abbott made repealing the exemption a legislative priority in June 2026. Patrick gave the Senate an interim charge on it, and Senate Finance held a hearing on its $3.3B biennial cost. That cross-party pressure makes at least a narrowing likely, such as closing it to new certifications or removing electricity, probably with grandfathering. Hinojosa also opposes the breaks, but a split government lowers the odds of a coordinated bill a little. Industry lobbying and grandfathering fights are the main risks to passage.",
+   "sources": [
+    "https://www.ksat.com/news/texas/2026/06/10/abbott-recommends-sweeping-data-center-regulation-including-eliminating-sales-tax-exemption/",
+    "https://spectrumlocalnews.com/tx/austin/news/2026/07/28/texas-lawmakers-weigh-future-of-data-center-tax-breaks",
+    "https://thetexan.news/state/legislature/texas-state-senate-news/texas-senate-committee-to-review-decade-old-data-center-tax-breaks/article_2e82cd00-f152-4cfc-9088-662e5ae47405.html"
+   ]
+  },
+  "restriction_law": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": 0.62
+    },
+    "dem_47.0": {
+     "p": 0.63
+    },
+    "dem_49.5": {
+     "p": 0.64
+    },
+    "dem_50.5": {
+     "p": 0.66
+    },
+    "dem_53.0": {
+     "p": 0.68
+    },
+    "dem_56.0": {
+     "p": 0.7
+    }
+   },
+   "reasoning": "Abbott's June recommendations, with water disclosure, a requirement that data centers bring their own power, and grid cost payments, plus a strong bipartisan backlash make it likely that at least one qualifying limit becomes law: a water permit or fee, a siting requirement, or a grid-cost payment beyond SB 6. Laws that only require reporting are the main way this fails to resolve yes. A stronger Democratic result signals stronger backlash, and a Governor Hinojosa would push for tougher limits.",
+   "sources": [
+    "https://www.ksat.com/news/texas/2026/06/10/abbott-recommends-sweeping-data-center-regulation-including-eliminating-sales-tax-exemption/",
+    "https://capitol.texas.gov/tlodocs/89R/analysis/html/SB00006F.htm",
+    "https://natlawreview.com/article/texas-legislature-sets-its-sights-data-centers-and-ai-what-you-need-know"
+   ]
+  },
+  "ercot_approved_mw_2027": {
+   "baseline": {
+    "value": 8926,
+    "as_of": "2026-06-30",
+    "source": "ERCOT Monthly Operational Overview June 2026 (https://www.ercot.com/files/docs/2026/07/17/ERCOT-Monthly-Operational-Overview-June-2026.pdf); 9,042 MW in the 2026-03-13 TAC report"
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 9500,
+     "p25": 11800,
+     "p50": 14000,
+     "p75": 17000,
+     "p95": 24000
+    },
+    "dem_47.0": {
+     "p05": 9500,
+     "p25": 11700,
+     "p50": 13800,
+     "p75": 16800,
+     "p95": 23500
+    },
+    "dem_49.5": {
+     "p05": 9300,
+     "p25": 11400,
+     "p50": 13400,
+     "p75": 16300,
+     "p95": 23000
+    },
+    "dem_50.5": {
+     "p05": 9000,
+     "p25": 10400,
+     "p50": 12100,
+     "p75": 14700,
+     "p95": 20500
+    },
+    "dem_53.0": {
+     "p05": 8900,
+     "p25": 10300,
+     "p50": 11900,
+     "p75": 14400,
+     "p95": 20000
+    },
+    "dem_56.0": {
+     "p05": 8800,
+     "p25": 10200,
+     "p50": 11700,
+     "p75": 14200,
+     "p95": 19500
+    }
+   },
+   "reasoning": "Approvals to energize have stayed near 9 GW through 2026 and are now paused. Once approvals resume, verified projects already in the queue could add several GW in 2027. However, Batch Zero's transmission plan does not arrive until fall 2027, which slows most new energizations. Cells where Hinojosa wins mean a longer pause and tighter rules, which shifts the distribution down.",
+   "sources": [
+    "https://www.ercot.com/files/docs/2026/07/17/ERCOT-Monthly-Operational-Overview-June-2026.pdf",
+    "https://www.ercot.com/files/docs/2026/03/12/March-TAC-Report.pdf",
+    "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf"
+   ]
+  },
+  "ercot_approved_mw_2028": {
+   "baseline": {
+    "value": 8926,
+    "as_of": "2026-06-30",
+    "source": "ERCOT Monthly Operational Overview June 2026 (https://www.ercot.com/files/docs/2026/07/17/ERCOT-Monthly-Operational-Overview-June-2026.pdf)"
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 12000,
+     "p25": 16500,
+     "p50": 21000,
+     "p75": 27000,
+     "p95": 38000
+    },
+    "dem_47.0": {
+     "p05": 12000,
+     "p25": 16300,
+     "p50": 20700,
+     "p75": 26500,
+     "p95": 37500
+    },
+    "dem_49.5": {
+     "p05": 11500,
+     "p25": 15800,
+     "p50": 20000,
+     "p75": 25800,
+     "p95": 36500
+    },
+    "dem_50.5": {
+     "p05": 10500,
+     "p25": 13600,
+     "p50": 17500,
+     "p75": 23000,
+     "p95": 34000
+    },
+    "dem_53.0": {
+     "p05": 10300,
+     "p25": 13400,
+     "p50": 17200,
+     "p75": 22500,
+     "p95": 33000
+    },
+    "dem_56.0": {
+     "p05": 10200,
+     "p25": 13200,
+     "p50": 17000,
+     "p75": 22000,
+     "p95": 32000
+    }
+   },
+   "reasoning": "In 2028, Batch Zero base-load projects (66 GW) start receiving approvals after the 2027 transmission plan, but energizing them is limited by construction and transmission build-out. A 2-3x increase over 2026 is plausible, and the right tail is wide. A Hinojosa administration means slower approvals and stricter conditions.",
+   "sources": [
+    "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+    "https://www.power-eng.com/business/policy-and-regulation/can-ercots-new-batch-zero-process-alleviate-the-burden-of-438000-mw-of-large-load-requests/"
+   ]
+  },
+  "comptroller_new_projects_2027": {
+   "baseline": {
+    "value": 61,
+    "as_of": "2026-11-03",
+    "source": "Texas Comptroller data center lists (https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php): 13 qualifying data centers plus 48 large projects with 2026 effective dates; 49 in 2025, 24 in 2024"
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 25,
+     "p25": 48,
+     "p50": 66,
+     "p75": 85,
+     "p95": 115
+    },
+    "dem_47.0": {
+     "p05": 25,
+     "p25": 48,
+     "p50": 65,
+     "p75": 84,
+     "p95": 114
+    },
+    "dem_49.5": {
+     "p05": 24,
+     "p25": 46,
+     "p50": 63,
+     "p75": 82,
+     "p95": 112
+    },
+    "dem_50.5": {
+     "p05": 22,
+     "p25": 44,
+     "p50": 60,
+     "p75": 78,
+     "p95": 108
+    },
+    "dem_53.0": {
+     "p05": 21,
+     "p25": 43,
+     "p50": 59,
+     "p75": 77,
+     "p95": 106
+    },
+    "dem_56.0": {
+     "p05": 20,
+     "p25": 42,
+     "p50": 58,
+     "p75": 76,
+     "p95": 105
+    }
+   },
+   "reasoning": "Registrations rose from 24 in 2024 to 49 in 2025 and 61 so far in 2026. If the exemption is closed to new certifications in 2027, developers will probably rush to register before the cutoff and then registrations will stop. The net 2027 count could land well above or below trend, hence the wide range. The ERCOT pause and a Hinojosa win reduce the count slightly.",
+   "sources": [
+    "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+    "https://comptroller.texas.gov/taxes/data-centers/"
+   ]
+  },
+  "us_dc_spending_2027": {
+   "baseline": {
+    "value": 85,
+    "as_of": "2026-08 (SAAR, released 2026-10-01)",
+    "source": "Census Construction Spending via Wolf Street (https://wolfstreet.com/2026/10/01/ai-data-center-construction-goes-nuts-power-plants-take-off-but-spending-on-factories-is-still-twice-as-big-as-data-centers/); April 2026 $50.7B SAAR"
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 70,
+     "p25": 92,
+     "p50": 110,
+     "p75": 130,
+     "p95": 165
+    },
+    "dem_47.0": {
+     "p05": 70,
+     "p25": 92,
+     "p50": 110,
+     "p75": 130,
+     "p95": 165
+    },
+    "dem_49.5": {
+     "p05": 69,
+     "p25": 91,
+     "p50": 109,
+     "p75": 129,
+     "p95": 164
+    },
+    "dem_50.5": {
+     "p05": 68,
+     "p25": 90,
+     "p50": 108,
+     "p75": 128,
+     "p95": 163
+    },
+    "dem_53.0": {
+     "p05": 67,
+     "p25": 89,
+     "p50": 107,
+     "p75": 127,
+     "p95": 162
+    },
+    "dem_56.0": {
+     "p05": 66,
+     "p25": 88,
+     "p50": 106,
+     "p75": 126,
+     "p95": 160
+    }
+   },
+   "reasoning": "The Census data-center series rose from about $45B SAAR in December 2025 to about $85B in August 2026, up 73% year over year. If growth continues more slowly, 2027 lands around $100-120B. The downside risks are an AI capex pullback, power constraints and benchmark revisions. Texas politics has only a small effect; a strong Democratic result slightly raises the odds of anti-data-center policy nationally.",
+   "sources": [
+    "https://wolfstreet.com/2026/10/01/ai-data-center-construction-goes-nuts-power-plants-take-off-but-spending-on-factories-is-still-twice-as-big-as-data-centers/",
+    "https://www.axios.com/2026/09/01/ai-data-center-constructon-spending",
+    "https://www.datacenterknowledge.com/build-design/data-centers-become-largest-segment-of-us-office-construction",
+    "https://www.census.gov/construction/c30/c30index.html"
+   ]
+  },
+  "us_dc_spending_2028": {
+   "baseline": {
+    "value": 85,
+    "as_of": "2026-08 (SAAR, released 2026-10-01)",
+    "source": "Census Construction Spending via Wolf Street (https://wolfstreet.com/2026/10/01/ai-data-center-construction-goes-nuts-power-plants-take-off-but-spending-on-factories-is-still-twice-as-big-as-data-centers/)"
+   },
+   "forecasts": {
+    "dem_44.0": {
+     "p05": 70,
+     "p25": 105,
+     "p50": 135,
+     "p75": 165,
+     "p95": 230
+    },
+    "dem_47.0": {
+     "p05": 70,
+     "p25": 105,
+     "p50": 135,
+     "p75": 165,
+     "p95": 230
+    },
+    "dem_49.5": {
+     "p05": 69,
+     "p25": 104,
+     "p50": 133,
+     "p75": 163,
+     "p95": 228
+    },
+    "dem_50.5": {
+     "p05": 68,
+     "p25": 103,
+     "p50": 132,
+     "p75": 162,
+     "p95": 226
+    },
+    "dem_53.0": {
+     "p05": 67,
+     "p25": 101,
+     "p50": 130,
+     "p75": 160,
+     "p95": 224
+    },
+    "dem_56.0": {
+     "p05": 66,
+     "p25": 100,
+     "p50": 128,
+     "p75": 158,
+     "p95": 220
+    }
+   },
+   "reasoning": "This extends the 2027 path with slower growth and a widening chance of an AI-capex correction, so the distribution has fat tails on both sides. The Texas result moves it only slightly, through national regulatory sentiment.",
+   "sources": [
+    "https://wolfstreet.com/2026/10/01/ai-data-center-construction-goes-nuts-power-plants-take-off-but-spending-on-factories-is-still-twice-as-big-as-data-centers/",
+    "https://www.census.gov/construction/c30/c30index.html"
+   ]
+  },
+  "other_state_moratorium": {
+   "forecasts": {
+    "dem_44.0": {
+     "p": 0.66
+    },
+    "dem_47.0": {
+     "p": 0.67
+    },
+    "dem_49.5": {
+     "p": 0.68
+    },
+    "dem_50.5": {
+     "p": 0.7
+    },
+    "dem_53.0": {
+     "p": 0.71
+    },
+    "dem_56.0": {
+     "p": 0.73
+    }
+   },
+   "reasoning": "New York's legislature passed a one-year statewide moratorium (S10642/A11560) that awaits Hochul's action by year-end. She has made her July 2026 data-center pause central to her campaign, so a signature after November 4, perhaps with chapter amendments, would resolve this yes; I put that at about 55%. Other routes are Maine reviving its vetoed moratorium under a new governor in 2027, a renewed New York order, or one of the roughly 12 states that considered moratoria. A stronger Democratic wave nationally raises the odds slightly.",
+   "sources": [
+    "https://www.dlapiper.com/insights/publications/2026/07/new-york-state-legislature-passes-first-in-the-nation-data-center-moratorium",
+    "https://www.wamc.org/2026-10-27/gov-hochul-once-resisted-a-data-center-pause-now-its-central-to-her-campaign",
+    "https://mainemorningstar.com/?p=16124",
+    "https://broadbandbreakfast.com/nations-first-state-data-center-moratorium-vetoed-by-maine-governor/",
+    "https://builtin.com/articles/state-data-center-moratoriums"
+   ]
+  }
+ }
+}

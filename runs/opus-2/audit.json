@@ -1,0 +1,27 @@
+{
+ "events": 75,
+ "tool_calls": 16,
+ "web_calls": 16,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://therealdeal.com/texas/2026/06/11/greg-abbott-recommends-texas-regulate-data-centers/",
+  "https://www.census.gov/construction/c30/pdf/release.pdf",
+  "search: Abbott Hinojosa poll October 2026",
+  "search: Census construction spending data center private 2026 annual rate",
+  "search: ERCOT December 10 verification report data center pause lift timeline PUC Abbott special session data centers",
+  "search: ERCOT Large Load Interconnection Status Update October 2026 approved to energize MW",
+  "search: ERCOT data center pause verification audit large load approval to energize",
+  "search: Hinojosa data centers plan moratorium tax break governor campaign",
+  "search: Hochul data center moratorium bill sign veto",
+  "search: Talarico Paxton poll late October 2026 Senate Texas",
+  "search: Texas data center sales tax exemption cost repeal legislature 2027 Hinojosa Abbott data centers",
+  "search: Texas early voting turnout 2026 total ballots cast record",
+  "search: Texas governor Kalshi Polymarket odds Abbott Hinojosa November 2026",
+  "search: construction spending September 2026 data center billion annual rate Census November 2",
+  "search: state data center moratorium bill legislature 2026 statewide"
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

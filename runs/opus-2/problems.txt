@@ -1,0 +1,2 @@
+ercot_approved_mw_2027: unexpected forecast keys ['dem_56.0_note_removed']
+us_dc_spending_2028: unexpected forecast keys ['dem_56.0_unused']

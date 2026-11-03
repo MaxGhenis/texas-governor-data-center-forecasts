@@ -1,0 +1,27 @@
+{
+ "events": 83,
+ "tool_calls": 16,
+ "web_calls": 16,
+ "urls": [
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://www.axios.com/local/san-antonio/2026/06/10/texas-gov-greg-abbott-data-center-regulation",
+  "https://www.hppr.org/hppr-news/2026-10-27/texas-early-voting-rate-is-slightly-behind-2018-when-beto-orourke-challenged-ted-cruz",
+  "search: \"data center\" construction spending September 2026 Census release billion annual rate",
+  "search: Abbott Hinojosa poll October 2026",
+  "search: Abbott data center pause ERCOT Hinojosa data centers tax exemption campaign",
+  "search: Abbott eliminate data center sales tax exemption legislature 2027",
+  "search: Census construction spending data center annual rate 2026 billion",
+  "search: Dan Patrick data centers sales tax exemption interim charge Senate 2027 session",
+  "search: ERCOT Batch Zero update October 2026 data center audit large load approved energize",
+  "search: ERCOT large load \"approved to energize\" MW October 2026",
+  "search: Hochul data center moratorium sign veto decision",
+  "search: Talarico Paxton poll October 2026 Senate Texas",
+  "search: Texas early voting turnout 2026 general election",
+  "search: data center construction spending August 2026 Census record annual rate",
+  "search: state data center moratorium bill 2026 legislature statewide"
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}

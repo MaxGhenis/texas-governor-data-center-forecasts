@@ -1,0 +1,29 @@
+{
+ "events": 40,
+ "tool_calls": 16,
+ "web_calls": 15,
+ "urls": [
+  "https://capitol.texas.gov/tlodocs/89R/schedules/pdf/C5402026072710301.PDF",
+  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+  "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+  "https://texaspolitics.utexas.edu/blog/texas-2026-gubernatorial-poll-tracker",
+  "https://www.census.gov/construction/c30/txt/privsatime.txt",
+  "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf",
+  "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+  "https://www.texastribune.org/2026/10/31/texas-early-voting-turnout-rate-election-2026/",
+  "search: ",
+  "search: '2026'",
+  "search: 'September'",
+  "search: Texas data center sales tax exemptions 2026 2027 Senate Finance 3.3 billion Abbott Hinojosa October ..."
+ ],
+ "violations": [],
+ "suspect": [
+  {
+   "tool": "shell",
+   "call": "{\"command\": \"/bin/sh -c \\\"python3 -I -c 'import urllib.request, re; page=urllib.request.urlopen(\\\\\\\"https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php\\\\\\\",timeout=25).read().decode(); rows=re.findall(r\\\\\\\"<tr\\\\\\\\b[\\\"'^>]*>(.*?)</tr>\\\",page,re.S|re.I); out=[]\\nfor row in rows:\\n cells=re.findall(r\\\"<t[dh]'\\\"\\\\\\\\b[\\\"'^>]*>(.*?)</t[dh]>\\\",row,re.S|re.I)\\n if len(cells)>1:\\n  clean=[re.sub(r\\\"<[''^>]+>\\\",\\\" \\\",x).strip() for x in cells]\\n  if re.fullmatch(r\\\"'\\\"\\\\\\\\d{1,2}/\\\\\\\\d{1,2}/2026\\\\\\\",clean[1]): out.append(clean[:2])\\nprint({\\\\\\\"count\\\\\\\":len(out),\\\\\\\"rows\\\\\\\":out})'\\\"\"}",
+   "why": "Python may use standard input as filenames or executable code"
+  }
+ ],
+ "local_calls": [],
+ "passed": true
+}

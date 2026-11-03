@@ -1,0 +1,1 @@
+ercot_approved_mw_2027: unexpected forecast keys ['_note']

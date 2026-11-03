@@ -1,0 +1,487 @@
+```json
+{
+  "forecaster": {
+    "model": "GPT-6 (Codex)",
+    "prior_context": "The environment context supplied cwd: \"/Users/maxghenis/.cache/tx-gov-datacenter-forecast/sol-3\", whose directory name mentions the subject. No substantive prior information about the race, data centers, or these forecasts was present.",
+    "notes": "No 2026-11-03 election vote counts or results were encountered. Early-voting totals were used. No local files were read. The Comptroller baseline interprets two effective dates printed as '06/172026' as June 17, 2026. The Census spending baseline was verified through Census-attributed reporting; the detailed Census workbook was not readable through the web tool."
+  },
+  "research_summary": "Reviewed late polling, early-voting totals, campaign and gubernatorial statements, legislative records, ERCOT reports, both Comptroller project lists, the November 2 Census release, construction outlooks, and statewide moratorium records. Abbott remains a modest favorite. Bipartisan policy commitments make Texas restrictions likely under either winner; a Hinojosa victory implies longer delays and fewer approvals. National construction forecasts depend much less on the Texas result.",
+  "nodes": {
+    "dem_share": {
+      "forecasts": {
+        "all": {
+          "le_38": 0.0006,
+          "le_40": 0.0021,
+          "le_42": 0.0071,
+          "le_44": 0.0298,
+          "le_45": 0.0632,
+          "le_46": 0.1263,
+          "le_47": 0.229,
+          "le_48": 0.3702,
+          "le_49": 0.533,
+          "le_50": 0.6902,
+          "le_51": 0.8171,
+          "le_52": 0.9033,
+          "le_53": 0.953,
+          "le_54": 0.978,
+          "le_55": 0.9894,
+          "le_56": 0.9945,
+          "le_58": 0.9984,
+          "le_60": 0.9995,
+          "le_62": 0.9999
+        }
+      },
+      "reasoning": "Late public polls place Hinojosa near parity, with substantial differences among pollsters. Texas's Republican history and Abbott's incumbency support a modest Republican adjustment, producing a median Hinojosa share of 48.8%. The distribution retains substantial common polling error and heavier tails than sampling error alone would imply.",
+      "sources": [
+        "https://texaspolitics.utexas.edu/blog/texas-2026-gubernatorial-poll-tracker",
+        "https://emersoncollegepolling.com/texas-2026-poll-toss-up/",
+        "https://www.jordanresearchcenter.org/s/TSUStatewideOct2026.pdf",
+        "https://www.uh.edu/hobby/texas2026/statewide26.pdf"
+      ]
+    },
+    "turnout": {
+      "forecasts": {
+        "all": {
+          "p05": 9400000,
+          "p25": 10000000,
+          "p50": 10450000,
+          "p75": 10900000,
+          "p95": 11600000
+        }
+      },
+      "reasoning": "More than 7.7 million early ballots support unusually high midterm participation. Historical early-voting patterns anchor the remaining Election Day electorate, with allowances for governor rolloff and other candidates. Uncertainty primarily concerns Election Day participation and substitution between early voting and Election Day voting.",
+      "sources": [
+        "https://www.texastribune.org/2026/10/31/texas-early-voting-turnout-rate-election-2026/",
+        "https://www.texastribune.org/2022/10/28/texas-2022-election-turnout-tracker/",
+        "https://www.sos.texas.gov/elections/historical/70-92.shtml"
+      ]
+    },
+    "senate_dem_share": {
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 43.7,
+          "p25": 45.6,
+          "p50": 46.7,
+          "p75": 47.8,
+          "p95": 49.7
+        },
+        "dem_47.0": {
+          "p05": 47.0,
+          "p25": 48.6,
+          "p50": 49.5,
+          "p75": 50.4,
+          "p95": 52.0
+        },
+        "dem_49.5": {
+          "p05": 49.4,
+          "p25": 51.0,
+          "p50": 51.9,
+          "p75": 52.8,
+          "p95": 54.4
+        },
+        "dem_50.5": {
+          "p05": 50.3,
+          "p25": 51.9,
+          "p50": 52.8,
+          "p75": 53.7,
+          "p95": 55.3
+        },
+        "dem_53.0": {
+          "p05": 52.5,
+          "p25": 54.1,
+          "p50": 55.1,
+          "p75": 56.1,
+          "p95": 57.7
+        },
+        "dem_56.0": {
+          "p05": 54.9,
+          "p25": 56.8,
+          "p50": 57.9,
+          "p75": 59.0,
+          "p95": 60.9
+        }
+      },
+      "reasoning": "Paired October polls consistently show Talarico performing better than Hinojosa, with Paxton attracting weaker Republican consolidation than Abbott. The common electorate makes the races strongly correlated, so conditioning on the governor substantially narrows Senate uncertainty. Extreme governor cells retain wider uncertainty and modest regression toward the central Senate expectation.",
+      "sources": [
+        "https://emersoncollegepolling.com/texas-2026-poll-toss-up/",
+        "https://www.jordanresearchcenter.org/s/TSUStatewideOct2026.pdf",
+        "https://www.uh.edu/hobby/texas2026/statewide26.pdf",
+        "https://texaspolitics.utexas.edu/blog/latest-ut-texas-politics-poll-finds-historic-levels-of-competition-in-texas-midterm-elections"
+      ]
+    },
+    "ercot_pause_lifted": {
+      "forecasts": {
+        "dem_44.0": {"p": 0.91},
+        "dem_47.0": {"p": 0.88},
+        "dem_49.5": {"p": 0.85},
+        "dem_50.5": {"p": 0.72},
+        "dem_53.0": {"p": 0.70},
+        "dem_56.0": {"p": 0.68}
+      },
+      "reasoning": "The audit has a December reporting deadline, and advanced projects create pressure to resume at least some qualifying approvals. Resuming approvals for audited projects is considerably easier than completing the entire Batch Zero study. Hinojosa's commitment to maintain a pause until protections exist lowers the probability after a Democratic win, particularly with a stronger mandate.",
+      "sources": [
+        "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+        "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/",
+        "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/"
+      ]
+    },
+    "special_session_data_centers": {
+      "forecasts": {
+        "dem_44.0": {"p": 0.28},
+        "dem_47.0": {"p": 0.33},
+        "dem_49.5": {"p": 0.39},
+        "dem_50.5": {"p": 0.60},
+        "dem_53.0": {"p": 0.64},
+        "dem_56.0": {"p": 0.68}
+      },
+      "reasoning": "Texas's repeated use of special sessions establishes a meaningful base rate, but the approaching regular session provides an immediate route for reform. A close Abbott victory leaves greater political pressure to revisit incomplete legislation. Hinojosa has explicitly demanded a special session, making a qualifying call more likely under her administration, although regular-session agreement could remove the need.",
+      "sources": [
+        "https://gov.texas.gov/news/post/governor-abbott-announces-fourth-special-session-agenda",
+        "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/",
+        "https://www.texastribune.org/2026/07/27/texas-data-centers-sales-tax-break-audits/"
+      ]
+    },
+    "tax_exemption_cut": {
+      "forecasts": {
+        "dem_44.0": {"p": 0.78},
+        "dem_47.0": {"p": 0.80},
+        "dem_49.5": {"p": 0.82},
+        "dem_50.5": {"p": 0.83},
+        "dem_53.0": {"p": 0.87},
+        "dem_56.0": {"p": 0.91}
+      },
+      "reasoning": "Abbott explicitly supports repealing data center incentives, while Senate Finance scrutiny and Democratic support create a broad legislative coalition. The resolution permits narrower changes, including removing electricity, which makes enactment more likely than complete repeal. Stronger Democratic results increase pressure for substantive cuts, while lobbying and reporting-only compromises preserve a failure probability.",
+      "sources": [
+        "https://gov.texas.gov/uploads/files/press/Thomas_Gleeson_Pablo_Vegas_Data_Centers_Directive_Letter_to_PUC_ERCOT_FINAL.pdf",
+        "https://senate.texas.gov/press.php?id=20-20260610a",
+        "https://www.texastribune.org/2026/07/27/texas-data-centers-sales-tax-break-audits/",
+        "https://comptroller.texas.gov/taxes/data-centers/"
+      ]
+    },
+    "restriction_law": {
+      "forecasts": {
+        "dem_44.0": {"p": 0.87},
+        "dem_47.0": {"p": 0.89},
+        "dem_49.5": {"p": 0.90},
+        "dem_50.5": {"p": 0.90},
+        "dem_53.0": {"p": 0.93},
+        "dem_56.0": {"p": 0.96}
+      },
+      "reasoning": "Bipartisan support for local siting powers and water safeguards creates several routes to qualifying legislation beyond SB6. Abbott already supports statutory restrictions, limiting the discontinuity when the governorship changes hands. Larger Democratic victories imply stronger demand and more favorable legislative conditions, while narrow victories could encounter partisan obstruction.",
+      "sources": [
+        "https://www.kxii.com/2026/11/01/hinojosa-abbott-outline-differing-plans-data-centers-housing-ahead-election-day/",
+        "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+        "https://capitol.texas.gov/tlodocs/89R/analysis/html/SB00006F.htm",
+        "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/"
+      ]
+    },
+    "ercot_approved_mw_2027": {
+      "baseline": {
+        "value": 9456,
+        "as_of": "2026-09-30",
+        "source": "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf"
+      },
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 9456,
+          "p25": 11500,
+          "p50": 15500,
+          "p75": 22000,
+          "p95": 36000
+        },
+        "dem_47.0": {
+          "p05": 9456,
+          "p25": 11200,
+          "p50": 14800,
+          "p75": 21000,
+          "p95": 35000
+        },
+        "dem_49.5": {
+          "p05": 9400,
+          "p25": 10800,
+          "p50": 14200,
+          "p75": 20000,
+          "p95": 33500
+        },
+        "dem_50.5": {
+          "p05": 9300,
+          "p25": 10100,
+          "p50": 13000,
+          "p75": 18500,
+          "p95": 31500
+        },
+        "dem_53.0": {
+          "p05": 9200,
+          "p25": 9900,
+          "p50": 12500,
+          "p75": 17700,
+          "p95": 30000
+        },
+        "dem_56.0": {
+          "p05": 9000,
+          "p25": 9700,
+          "p50": 12000,
+          "p75": 16800,
+          "p95": 28500
+        }
+      },
+      "reasoning": "The September baseline, published October 16, is approved capacity rather than actual consumption. Advanced projects awaiting final approval support a catch-up after the audit, but the delayed study and speculative queue discourage extrapolating requested capacity. Stronger Democratic cells imply slower approvals; lower tails allow prolonged delays and withdrawals of previously approved capacity.",
+      "sources": [
+        "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf",
+        "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+        "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/"
+      ]
+    },
+    "ercot_approved_mw_2028": {
+      "baseline": {
+        "value": 9456,
+        "as_of": "2026-09-30",
+        "source": "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf"
+      },
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 10000,
+          "p25": 15700,
+          "p50": 25000,
+          "p75": 37000,
+          "p95": 62000
+        },
+        "dem_47.0": {
+          "p05": 9900,
+          "p25": 15000,
+          "p50": 24000,
+          "p75": 35500,
+          "p95": 60000
+        },
+        "dem_49.5": {
+          "p05": 9800,
+          "p25": 14300,
+          "p50": 23000,
+          "p75": 34000,
+          "p95": 57000
+        },
+        "dem_50.5": {
+          "p05": 9500,
+          "p25": 13000,
+          "p50": 20500,
+          "p75": 31000,
+          "p95": 53500
+        },
+        "dem_53.0": {
+          "p05": 9400,
+          "p25": 12300,
+          "p50": 19200,
+          "p75": 29200,
+          "p95": 50500
+        },
+        "dem_56.0": {
+          "p05": 9200,
+          "p25": 11600,
+          "p50": 18000,
+          "p75": 27500,
+          "p95": 47500
+        }
+      },
+      "reasoning": "The additional year permits more audited projects and transmission work to clear the approval process, producing higher central estimates and wider uncertainty. The large conditional pipeline supports substantial upside, while financing, grid constraints and statutory restrictions limit conversion. Strong Democratic mandates lower approvals through sustained scrutiny, with existing industrial loads cushioning the effect.",
+      "sources": [
+        "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf",
+        "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+        "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
+      ]
+    },
+    "comptroller_new_projects_2027": {
+      "baseline": {
+        "value": 60,
+        "as_of": "2026-11-03",
+        "source": "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php"
+      },
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 5,
+          "p25": 27,
+          "p50": 50,
+          "p75": 80,
+          "p95": 130
+        },
+        "dem_47.0": {
+          "p05": 4,
+          "p25": 25,
+          "p50": 47,
+          "p75": 76,
+          "p95": 124
+        },
+        "dem_49.5": {
+          "p05": 3,
+          "p25": 22,
+          "p50": 44,
+          "p75": 71,
+          "p95": 117
+        },
+        "dem_50.5": {
+          "p05": 1,
+          "p25": 18,
+          "p50": 38,
+          "p75": 64,
+          "p95": 108
+        },
+        "dem_53.0": {
+          "p05": 0,
+          "p25": 15,
+          "p50": 33,
+          "p75": 58,
+          "p95": 100
+        },
+        "dem_56.0": {
+          "p05": 0,
+          "p25": 11,
+          "p50": 28,
+          "p75": 51,
+          "p95": 91
+        }
+      },
+      "reasoning": "The current lists contain 12 qualifying data center entries and 48 qualifying large-project entries effective in 2026. Certification can precede construction, and an anticipated cutoff could accelerate applications, supporting the upper tails. Program closure, narrower incentives and administrative scrutiny reduce central estimates, especially under stronger Democratic outcomes; narrowing exemptions need not eliminate registrations.",
+      "sources": [
+        "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php",
+        "https://comptroller.texas.gov/taxes/data-centers/",
+        "https://www.texastribune.org/2026/07/27/texas-data-centers-sales-tax-break-audits/",
+        "https://gov.texas.gov/uploads/files/press/Thomas_Gleeson_Pablo_Vegas_Data_Centers_Directive_Letter_to_PUC_ERCOT_FINAL.pdf"
+      ]
+    },
+    "us_dc_spending_2027": {
+      "baseline": {
+        "value": 96.462,
+        "as_of": "2026-09-30",
+        "source": "https://fourweekmba.com/ai-us-data-center-construction-hit-a-record-96-5b-rate/"
+      },
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 76,
+          "p25": 104,
+          "p50": 128,
+          "p75": 164,
+          "p95": 225
+        },
+        "dem_47.0": {
+          "p05": 75,
+          "p25": 103,
+          "p50": 127,
+          "p75": 163,
+          "p95": 224
+        },
+        "dem_49.5": {
+          "p05": 74,
+          "p25": 102,
+          "p50": 126,
+          "p75": 162,
+          "p95": 223
+        },
+        "dem_50.5": {
+          "p05": 74,
+          "p25": 102,
+          "p50": 126,
+          "p75": 162,
+          "p95": 223
+        },
+        "dem_53.0": {
+          "p05": 73,
+          "p25": 100,
+          "p50": 124,
+          "p75": 160,
+          "p95": 220
+        },
+        "dem_56.0": {
+          "p05": 71,
+          "p25": 98,
+          "p50": 122,
+          "p75": 157,
+          "p95": 217
+        }
+      },
+      "reasoning": "The baseline is September's monthly seasonally adjusted annual rate, released November 2; forecasts are full calendar-year totals in billions of current dollars. Recent construction momentum and projects already underway support substantial spending, while power, labor and financing constrain delivery. Stronger Democratic cells modestly signal broader political or economic headwinds, with relocation from Texas offsetting part of the effect.",
+      "sources": [
+        "https://www.census.gov/construction/c30/pdf/release.pdf",
+        "https://www.census.gov/construction/c30/xlsx/privsatime.xlsx",
+        "https://fourweekmba.com/ai-us-data-center-construction-hit-a-record-96-5b-rate/",
+        "https://www.factiq.com/updates/us-construction-spending-september-2026-down-1-9-on-housing-as-data-centers-grow-1372",
+        "https://www.aia.org/resource-center/july-2026-consensus-construction-forecast"
+      ]
+    },
+    "us_dc_spending_2028": {
+      "baseline": {
+        "value": 96.462,
+        "as_of": "2026-09-30",
+        "source": "https://fourweekmba.com/ai-us-data-center-construction-hit-a-record-96-5b-rate/"
+      },
+      "forecasts": {
+        "dem_44.0": {
+          "p05": 58,
+          "p25": 100,
+          "p50": 158,
+          "p75": 224,
+          "p95": 350
+        },
+        "dem_47.0": {
+          "p05": 57,
+          "p25": 99,
+          "p50": 157,
+          "p75": 222,
+          "p95": 347
+        },
+        "dem_49.5": {
+          "p05": 55,
+          "p25": 97,
+          "p50": 155,
+          "p75": 220,
+          "p95": 344
+        },
+        "dem_50.5": {
+          "p05": 55,
+          "p25": 97,
+          "p50": 155,
+          "p75": 220,
+          "p95": 344
+        },
+        "dem_53.0": {
+          "p05": 53,
+          "p25": 94,
+          "p50": 152,
+          "p75": 216,
+          "p95": 338
+        },
+        "dem_56.0": {
+          "p05": 50,
+          "p25": 91,
+          "p50": 148,
+          "p75": 212,
+          "p95": 333
+        }
+      },
+      "reasoning": "The baseline remains September's monthly annualized construction rate, while these forecasts measure calendar-year spending. Continued computing demand supports higher central estimates, but the longer horizon permits either a financing retrenchment or sustained rapid expansion, widening both tails. Cell differences remain modest because national demand and capital availability dominate Texas policy, and projects can move between states.",
+      "sources": [
+        "https://www.census.gov/construction/c30/pdf/release.pdf",
+        "https://fourweekmba.com/ai-us-data-center-construction-hit-a-record-96-5b-rate/",
+        "https://www.aia.org/resource-center/july-2026-consensus-construction-forecast",
+        "https://www.jll.com/content/dam/jllcom/en/global/documents/reports/research-reports/26-research-global-data-center-outlook-new.pdf"
+      ]
+    },
+    "other_state_moratorium": {
+      "forecasts": {
+        "dem_44.0": {"p": 0.80},
+        "dem_47.0": {"p": 0.82},
+        "dem_49.5": {"p": 0.84},
+        "dem_50.5": {"p": 0.84},
+        "dem_53.0": {"p": 0.86},
+        "dem_56.0": {"p": 0.89}
+      },
+      "reasoning": "NCSL tracked moratorium proposals in 16 states, and New York legislation has passed both chambers while awaiting gubernatorial action. Existing New York and Oregon orders precede the resolution window; prospective laws, replacement orders or extensions provide plausible qualifying events. Higher Hinojosa shares modestly strengthen the inferred national backlash, without a discontinuity at the Texas victory threshold.",
+      "sources": [
+        "https://www.ncsl.org/fiscal/which-states-are-banning-data-centers",
+        "https://assembly.state.ny.us/leg/?Actions=Y&Memo=Y&Summary=Y&bn=A11560&term=2025",
+        "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+        "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf",
+        "https://www.opb.org/article/2026/10/13/oregon-data-centers-technology-amazon-tina-kotek/"
+      ]
+    }
+  }
+}
+```

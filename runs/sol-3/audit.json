@@ -1,0 +1,21 @@
+{
+ "events": 30,
+ "tool_calls": 11,
+ "web_calls": 11,
+ "urls": [
+  "https://fourweekmba.com/ai-us-data-center-construction-hit-a-record-96-5b-rate/",
+  "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/",
+  "https://www.ercot.com/files/docs/2026/10/16/ERCOT-Monthly-Operational-Overview-September.pdf",
+  "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+  "https://www.kxii.com/2026/11/01/hinojosa-abbott-outline-differing-plans-data-centers-housing-ahead-election-day/",
+  "search: Texas Abbott August 3 2026 data center pause verification audit ERCOT Hinojosa ...",
+  "search: Texas Senate Finance July 27 2026 data center exemption Patrick \"repeal\" ...",
+  "search: site.gov.texas.gov data centers September 21 2026 TCEQ permitting ...",
+  "search: site:ginafortexas.com \"data\" \"special\" ...",
+  "search: site:gov.texas.gov 2025 fourth special session proclamation ..."
+ ],
+ "violations": [],
+ "suspect": [],
+ "local_calls": [],
+ "passed": true
+}
