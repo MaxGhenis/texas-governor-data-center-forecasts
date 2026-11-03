@@ -42,6 +42,23 @@ def test_a_new_manifest_gets_a_new_proof(tmp_path, monkeypatch):
     assert "MOCK OLD MANIFEST" not in (prereg / "SHA256SUMS").read_text()
 
 
+def test_a_codex_runs_session_logs_are_hashed(tmp_path, monkeypatch):
+    prereg = area(tmp_path, monkeypatch)
+    sessions = tmp_path / "runs" / "sol-1" / "codex-sessions"
+    sessions.mkdir(parents=True)
+    (sessions.parent / "meta.json").write_text("MOCK meta\n")
+    (sessions / "rollout-MOCK.jsonl").write_text("MOCK session log\n")
+    (sessions / "audit.json").write_text("MOCK audit\n")
+    (tmp_path / "runs" / "opus-1").mkdir()
+    (tmp_path / "runs" / "opus-1" / "meta.json").write_text("MOCK meta\n")
+    assert cli.cmd_prereg(argparse.Namespace(no_stamp=True)) == 0
+    manifest = (prereg / "SHA256SUMS").read_text()
+    for rel in ("runs/sol-1/meta.json", "runs/sol-1/codex-sessions/rollout-MOCK.jsonl",
+                "runs/sol-1/codex-sessions/audit.json", "runs/opus-1/meta.json"):
+        assert f"  {rel}\n" in manifest
+    assert "opus-1/codex-sessions" not in manifest
+
+
 def test_hashing_without_a_stamp_drops_the_old_proof(tmp_path, monkeypatch):
     prereg = area(tmp_path, monkeypatch)
     monkeypatch.setattr(cli.subprocess, "run", lambda *a, **k: (_ for _ in ()).throw(AssertionError("no stamp")))

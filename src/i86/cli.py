@@ -248,6 +248,9 @@ def cmd_prereg(args) -> int:
     for d in run_dirs():
         files += [p for p in (d / "meta.json", d / "response.md", d / "response.json", d / "audit.json",
                               d / "transcript.jsonl") if p.exists()]
+        # A Codex run's session logs, its sub-agents' included, and their audit
+        # (scripts/audit_codex_sessions.py): the transcript records only the main thread.
+        files += sorted(p for p in (d / "codex-sessions").glob("*") if p.is_file())
     files += sorted(p for p in OUTPUTS.glob("*") if p.is_file())
     lines = [f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(ROOT)}" for p in files]
     PREREG.mkdir(exist_ok=True)

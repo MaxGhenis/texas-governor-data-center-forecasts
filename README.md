@@ -15,7 +15,7 @@ the cutoff effect, is the forecasters' estimate of what a bare Hinojosa win chan
 the "Abbott wins" and "Hinojosa wins" columns mixes that with what a larger margin says about Texas
 voters.
 
-**Questions.** `graph/graph.yaml` defines 12 questions, 68 answers in all.
+**Questions.** `graph/graph.yaml` defines 13 questions, 68 answers in all.
 
 - The vote: Hinojosa's share (a cumulative distribution), turnout, and James Talarico's share in the
   same-day US Senate race.
@@ -106,18 +106,30 @@ outside a run's work directory; a run with a suspect call, or whose `prior_conte
 questions, stays out of the pool until a reader checks it and passes `--accept-suspect` or
 `--accept-prior`. The source repository's README describes the audit in full.
 
+Codex ran every Sol run here with its proactive multi-agent mode on, and each run's main thread
+spawned three sub-agents. They saw the same brief and searched the web from the same work directory
+and read-only sandbox. `codex exec --json`, which `transcript.jsonl` records, carries only the main
+thread, so `audit` never sees the sub-agents' calls.
+`scripts/audit_codex_sessions.py` finds every thread behind a Codex run in its lane's session logs,
+keeps the logs in `runs/<label>/codex-sessions/`, audits each thread as `audit` audits a transcript,
+and flags any tool or item it cannot read. `i86 prereg` hashes those folders too.
+
 ## Files
 
 - `graph/graph.yaml`: the map: questions, cells and resolution criteria.
 - `context/brief.md`: the facts every forecaster gets, with sources.
 - `prompts/forecaster.md`: the generated prompt; `schemas/template.json`: the response template.
 - `runs/<label>/`: each run's prompt as sent, metadata, verbatim answer, transcript, parsed response and
-  audit.
+  audit. For a Codex run, `codex-sessions/` keeps the session log of every thread, sub-agents
+  included, and their audit.
+- `scripts/`: `rd_summary.py` writes the raw-answer contrasts in `outputs/rd.*`; `seal.py` and
+  `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits a
+  Codex run's sub-agents.
 - `outputs/`: pooled summaries (`summary.md`, `summary.json`, `nodes.csv`, `runs.csv`) and `plots/`.
 - `prereg/`: hashes and timestamps.
 - `src/i86/`: map loading, response checks, samplers, simulator, pooling, report, runners and audit.
 - `tests/`: the source repository's tests. Most run on its DC Initiative 86 map, kept as
-  `tests/fixtures/i86_graph.yaml`; the prompt test runs on this map. Test responses are labelled MOCK.
+  `tests/fixtures/i86_graph.yaml`; the prompt test runs on this map. Test responses carry the label MOCK.
 
 ## What the numbers are
 
