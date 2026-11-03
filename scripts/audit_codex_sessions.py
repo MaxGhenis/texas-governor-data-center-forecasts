@@ -41,7 +41,7 @@ from urllib.parse import unquote, urlparse
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from i86 import audit  # noqa: E402
+from i86 import audit, runners  # noqa: E402
 
 RUNS = ROOT / "runs"
 LANES = Path.home() / ".subfleet" / "lanes"
@@ -218,8 +218,7 @@ def codex_runs() -> list[Path]:
         meta_path = d / "meta.json"
         if not meta_path.is_file() or not (d / "response.md").exists():
             continue
-        meta = json.loads(meta_path.read_text())
-        if str(meta.get("lane_id", "")).startswith("codex") or str(meta.get("model_served", "")).startswith("gpt"):
+        if runners.served_by_codex(json.loads(meta_path.read_text())):
             out.append(d)
     return out
 

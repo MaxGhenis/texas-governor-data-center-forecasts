@@ -74,10 +74,12 @@ def test_mock_positive_condition_does_not_drop_the_run(graph):
     assert conditional["runs"] == 1 and conditional["p"] == 1.
 
 
-def test_committed_charts_match_committed_summary(graph, tmp_path):
+def test_committed_charts_match_committed_summary(tx_graph, tmp_path):
+    # The committed outputs pool this project's own map, not the I-86 fixture.
     root = Path(__file__).resolve().parents[1]
     result = json.loads((root / "outputs/summary.json").read_text())
-    regenerated = plots.write(graph, result, tmp_path)
-    assert len(regenerated) == 12
+    regenerated = plots.write(tx_graph, result, tmp_path)
+    committed = sorted(p.relative_to(root / "outputs") for p in (root / "outputs" / "plots").glob("*.svg"))
+    assert sorted(p.relative_to(tmp_path) for p in regenerated) == committed
     for path in regenerated:
         assert path.read_bytes() == (root / "outputs" / path.relative_to(tmp_path)).read_bytes()

@@ -1,5 +1,6 @@
 """Dispatch bookkeeping: staging, sealing, late runs and which runs get pooled. MOCK runs only."""
 
+import argparse
 import hashlib
 import json
 from types import SimpleNamespace
@@ -119,6 +120,73 @@ def test_a_run_with_suspect_calls_is_pooled_only_once_the_operator_lists_it(area
     assert "excluding odd-call: 2 suspect call(s)" in err and "--accept-suspect odd-call" in err
     assert set(cli.accepted_runs(graph, "sha", accept_suspect={"odd-call"})) == {"ok", "odd-call"}
     assert set(cli.accepted_runs(graph, "sha", accept_prior={"odd-call"})) == {"ok"}
+
+
+def _codex_run(graph, label, session, suspect=()):
+    """A MOCK run a Codex lane served, with a MOCK audit of its session logs (None: no such audit)."""
+    _accepted_run(graph, label, suspect=suspect)
+    meta = runners.read_meta(runners.RUNS / label)
+    meta["lane_id"] = "codex-9"
+    runners.write_meta(runners.RUNS / label, meta)
+    if session is not None:
+        (runners.RUNS / label / "codex-sessions").mkdir()
+        (runners.RUNS / label / "codex-sessions" / "audit.json").write_text(json.dumps(session))
+
+
+def _session(passed=True, main=(), helper=()):
+    """A MOCK session-log audit: a main thread and one sub-agent, with their suspect calls."""
+    def thread(tid, parent, suspect):
+        return {"thread_id": tid, "spawned_by": parent,
+                "audit": {"passed": passed, "violations": [], "suspect": list(suspect)}}
+    return {"passed": passed, "violations": 0 if passed else 1,
+            "threads": [thread("MOCK-main", None, main), thread("MOCK-helper", "MOCK-main", helper)]}
+
+
+def test_a_codex_run_is_pooled_only_with_a_passing_audit_of_its_session_logs(area, graph, capsys):
+    """A Codex run's transcript omits its sub-agents, so its session logs' audit gates it too."""
+    call = {"tool": "exec_command", "call": '{"command": "MOCK command"}', "why": "MOCK reason"}
+    _accepted_run(graph, "opus")  # no Codex lane, so no session logs to audit
+    _codex_run(graph, "sol-ok", _session())
+    _codex_run(graph, "sol-none", None)
+    _codex_run(graph, "sol-failed", _session(passed=False))
+    _codex_run(graph, "sol-odd", _session(helper=[call, call]))
+    _codex_run(graph, "sol-main", _session(main=[call]), suspect=[call])
+    _codex_run(graph, "sol-hidden", _session(main=[call]))  # only the session logs show the main thread's call
+    _codex_run(graph, "sol-bad", {"passed": True})  # not a session audit: it lists no threads
+    assert set(cli.accepted_runs(graph, "sha")) == {"opus", "sol-ok"}
+    err = capsys.readouterr().err
+    assert "excluding sol-none: no readable audit of its session logs" in err
+    assert "excluding sol-bad: no readable audit of its session logs" in err
+    assert "excluding sol-failed: the audit of its session logs failed" in err
+    assert "excluding sol-odd: 2 suspect call(s)" in err
+    assert "excluding sol-main: 1 suspect call(s)" in err  # the main thread's call counts once
+    assert "excluding sol-hidden: 1 suspect call(s)" in err
+    accept = {"sol-odd", "sol-main", "sol-hidden", "sol-none", "sol-failed", "sol-bad"}
+    assert set(cli.accepted_runs(graph, "sha", accept_suspect=accept)) == {
+        "opus", "sol-ok", "sol-odd", "sol-main", "sol-hidden"}
+    assert cli._sub_agent_suspects(_session(main=[call], helper=[call, call])) == [call, call]
+    other = {**call, "call": '{"command": "MOCK other command"}'}
+    assert cli._codex_suspects([call, other], _session(main=[call], helper=[call])) == [call, other, call]
+    assert cli._codex_suspects([], _session(main=[call, other])) == [call, other]
+
+
+def test_the_runs_table_counts_every_threads_suspect_calls(area, graph, monkeypatch):
+    """`simulate` reports the suspect calls the gate counted, a Codex run's sub-agents' included."""
+    call = {"tool": "exec_command", "call": '{"command": "MOCK command"}', "why": "MOCK reason"}
+    _accepted_run(graph, "opus", suspect=[call])
+    _codex_run(graph, "sol-ok", _session())
+    _codex_run(graph, "sol-odd", _session(main=[call], helper=[call, call]), suspect=[call])
+    _codex_run(graph, "sol-hidden", _session(main=[call]))
+    reported = {}
+    monkeypatch.setattr(cli.graph_mod, "load", lambda: graph)
+    monkeypatch.setattr(cli, "_prompt_sha", lambda: "sha")
+    monkeypatch.setattr(cli, "pool", lambda g, runs, n, seed: "MOCK pooled result")
+    monkeypatch.setattr(cli.report, "write", lambda g, result, meta, out: reported.update(meta))
+    args = argparse.Namespace(n=1, seed=0, allow_unaudited=False, accept_prior=[],
+                              accept_suspect=["opus", "sol-odd", "sol-hidden"])
+    assert cli.cmd_simulate(args) == 0
+    assert {label: m["suspect_calls"] for label, m in reported.items()} == {
+        "opus": 1, "sol-ok": 0, "sol-odd": 3, "sol-hidden": 1}
 
 
 def test_runs_without_an_audit_are_excluded_unless_manual_and_allowed(area, graph):

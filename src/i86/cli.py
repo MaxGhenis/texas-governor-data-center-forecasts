@@ -178,11 +178,44 @@ def _audit_record(result) -> bool:
             and isinstance(result.get("violations"), list) and isinstance(result.get("suspect"), list))
 
 
+SESSIONS = "codex-sessions"
+
+
+def _session_audit(run_dir: Path):
+    """A Codex run's audit of every thread, sub-agents included (`scripts/audit_codex_sessions.py`):
+    the record, None if the run has none, or "unreadable" if it is not such a record."""
+    path = run_dir / SESSIONS / "audit.json"
+    if not path.exists():
+        return None
+    try:
+        rec = json.loads(path.read_text())
+    except (ValueError, RecursionError):
+        return "unreadable"
+    ok = (isinstance(rec, dict) and isinstance(rec.get("passed"), bool) and isinstance(rec.get("threads"), list)
+          and all(isinstance(t, dict) and isinstance((t.get("audit") or {}).get("suspect"), list)
+                  for t in rec["threads"]))
+    return rec if ok else "unreadable"
+
+
+def _sub_agent_suspects(session: dict) -> list:
+    """The suspect calls a session audit found in sub-agents, which the transcript audit never sees."""
+    return [call for t in session["threads"] if t.get("spawned_by") for call in t["audit"]["suspect"]]
+
+
+def _codex_suspects(transcript: list, session: dict) -> list:
+    """A Codex run's suspect calls. Its transcript and its session logs both record the main thread,
+    though the two may quote a command differently, so the main thread's calls come from whichever
+    audit lists more; only the session logs record the sub-agents'."""
+    main = [call for t in session["threads"] if not t.get("spawned_by") for call in t["audit"]["suspect"]]
+    return [*max(transcript, main, key=len), *_sub_agent_suspects(session)]
+
+
 def accepted_runs(g, prompt_sha: str, allow_unaudited: bool = False, accept_prior: set[str] = frozenset(),
                   accept_suspect: set[str] = frozenset()) -> dict:
     """Runs with a parsed response, the current prompt's hash, a passing audit with no suspect calls
-    and no prior context about these questions. The operator may read a run's suspect calls, or its
-    prior context, and list it in `accept_suspect` or `accept_prior` to pool it anyway."""
+    and no prior context about these questions; a Codex run also needs a passing audit of its session
+    logs, whose sub-agents' suspect calls count with the rest. The operator may read a run's suspect
+    calls, or its prior context, and list it in `accept_suspect` or `accept_prior` to pool it anyway."""
     runs = {}
     for d in run_dirs():
         resp = d / "response.json"
@@ -209,9 +242,20 @@ def accepted_runs(g, prompt_sha: str, allow_unaudited: bool = False, accept_prio
             print(f"excluding {d.name}: audit failed", file=sys.stderr)
             continue
         suspect = result["suspect"] if result is not None else []
+        if runners.served_by_codex(meta):
+            session = _session_audit(d)
+            if not isinstance(session, dict):
+                print(f"excluding {d.name}: no readable audit of its session logs (run "
+                      f"scripts/audit_codex_sessions.py {d.name})", file=sys.stderr)
+                continue
+            if not session["passed"] or session.get("violations"):
+                print(f"excluding {d.name}: the audit of its session logs failed (read runs/{d.name}/{SESSIONS}/"
+                      f"audit.json)", file=sys.stderr)
+                continue
+            suspect = _codex_suspects(suspect, session)
         if suspect and d.name not in accept_suspect:
-            print(f"excluding {d.name}: {len(suspect)} suspect call(s) (read them in runs/{d.name}/audit.json; "
-                  f"--accept-suspect {d.name} to include)", file=sys.stderr)
+            print(f"excluding {d.name}: {len(suspect)} suspect call(s) (read them in runs/{d.name}/audit.json and, "
+                  f"for a Codex run, {SESSIONS}/audit.json; --accept-suspect {d.name} to include)", file=sys.stderr)
             continue
         fc = parse(g, json.loads(resp.read_text()))
         disclosed = str(fc.forecaster.get("prior_context") or "")
@@ -233,8 +277,12 @@ def cmd_simulate(args) -> int:
     for rid, m in meta.items():
         m["prior_context"] = runs[rid].forecaster.get("prior_context")
         audit_path = runners.RUNS / rid / "audit.json"
-        if audit_path.exists():
-            m["suspect_calls"] = len(json.loads(audit_path.read_text()).get("suspect", []))
+        suspect = json.loads(audit_path.read_text()).get("suspect", []) if audit_path.exists() else None
+        session = _session_audit(runners.RUNS / rid) if runners.served_by_codex(m) else None
+        if isinstance(session, dict):
+            suspect = _codex_suspects(suspect or [], session)
+        if suspect is not None:
+            m["suspect_calls"] = len(suspect)
     report.write(g, result, meta, OUTPUTS)
     print(f"pooled {len(runs)} run(s) into {OUTPUTS.relative_to(ROOT)}/")
     return 0

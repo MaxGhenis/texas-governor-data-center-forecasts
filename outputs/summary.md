@@ -21,10 +21,10 @@
 | opus-9 | claude-opus-5-5 | 35% | 49.0% | 1 in 1,325,914 | 0% | 0% | 0 | none |  |
 | sol-1 | gpt-6.1-sol | 21% | 48.4% | 1 in 1,572,997 | 0% | 0% | 0 | The environment context gives the workspace path "/Users/maxghenis/.cache/tx-gov |  |
 | sol-2 | gpt-6.1-sol | 33% | 49.0% | 1 in 1,385,122 | 0% | 0% | 1 | Before research, the only relevant context outside the brief was the user-provid |  |
-| sol-3 | gpt-6.1-sol | 31% | 48.8% | 1 in 1,467,196 | 0% | 36% | 0 | The environment context supplied cwd: "/Users/maxghenis/.cache/tx-gov-datacenter |  |
+| sol-3 | gpt-6.1-sol | 31% | 48.8% | 1 in 1,467,196 | 0% | 36% | 2 | The environment context supplied cwd: "/Users/maxghenis/.cache/tx-gov-datacenter |  |
 | sol-4 | gpt-6.1-sol | 30% | 48.9% | 1 in 1,294,156 | 0% | 0% | 0 | The environment supplied '<cwd>/Users/maxghenis/.cache/tx-gov-datacenter-forecas |  |
 | sol-5 | gpt-6.1-sol | 32% | 48.9% | 1 in 1,428,786 | 0% | 0% | 0 | none |  |
-| sol-6 | gpt-6.1-sol | 26% | 48.5% | 1 in 1,573,458 | 0% | 0% | 0 | The environment context contains the workspace path "/Users/maxghenis/.cache/tx- |  |
+| sol-6 | gpt-6.1-sol | 26% | 48.5% | 1 in 1,573,458 | 0% | 0% | 1 | The environment context contains the workspace path "/Users/maxghenis/.cache/tx- |  |
 
 'Same at every cell' and 'Same at 49.5% and 50.5%' are the shares of a run's question-and-state groups whose answers are identical across cells; high values can mean copied answers. 'Suspect calls' counts tool calls the audit flagged for reading without excluding the run. 'Prior context' is what the forecaster reported seeing, before research, beyond the brief. 'late' runs were dispatched after other answers were in the repository; 'recovered' runs were reported lost by their supervisor, and their answer is the final message in the run's own transcript.
 

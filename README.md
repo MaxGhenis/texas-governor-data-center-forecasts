@@ -112,7 +112,9 @@ and read-only sandbox. `codex exec --json`, which `transcript.jsonl` records, ca
 thread, so `audit` never sees the sub-agents' calls.
 `scripts/audit_codex_sessions.py` finds every thread behind a Codex run in its lane's session logs,
 keeps the logs in `runs/<label>/codex-sessions/`, audits each thread as `audit` audits a transcript,
-and flags any tool or item it cannot read. `i86 prereg` hashes those folders too.
+and flags any tool or item it cannot read. `i86 prereg` hashes those folders too. `simulate` pools a
+Codex run only if that audit passed, and a suspect call in any of its threads keeps the run out
+until a reader passes `--accept-suspect`.
 
 ## Files
 
@@ -123,8 +125,8 @@ and flags any tool or item it cannot read. `i86 prereg` hashes those folders too
   audit. For a Codex run, `codex-sessions/` keeps the session log of every thread, sub-agents
   included, and their audit.
 - `scripts/`: `rd_summary.py` writes the raw-answer contrasts in `outputs/rd.*`; `seal.py` and
-  `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits a
-  Codex run's sub-agents.
+  `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits every
+  thread of a Codex run, the main thread and its sub-agents.
 - `outputs/`: pooled summaries (`summary.md`, `summary.json`, `nodes.csv`, `runs.csv`) and `plots/`.
 - `prereg/`: hashes and timestamps.
 - `src/i86/`: map loading, response checks, samplers, simulator, pooling, report, runners and audit.

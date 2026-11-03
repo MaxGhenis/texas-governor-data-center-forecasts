@@ -12,6 +12,7 @@ manifest and its proof; `SHA256SUMS` and `SHA256SUMS.ots` at the top are the lat
 | `2026-11-03-collected/` | 20:50Z 11/03 | every run's answer, parsed response, audit and transcript, collected once the last run had finished |
 | `2026-11-03-pooled/` | 20:54Z 11/03 | the above plus `outputs/` from `i86 simulate --accept-suspect sol-2 --accept-prior opus-3 --accept-prior sol-1 --accept-prior sol-2 --accept-prior sol-3 --accept-prior sol-4 --accept-prior sol-6` (seed 0, 20,000 draws), and `scripts/rd_summary.py` |
 | `2026-11-03-codex-sessions/` | 21:50Z 11/03 | the above, unchanged, plus each Sol run's `codex-sessions/`: the session logs of its main thread and its three sub-agents, and their audit from `scripts/audit_codex_sessions.py` |
+| `2026-11-03-repooled/` | 22:27Z 11/03 | the above with `outputs/` pooled again under the gate that reads the session audits, by the pooled folder's command plus `--accept-suspect sol-3 --accept-suspect sol-6`; only `outputs/summary.md` changed |
 
 The pooled run accepts two kinds of flag after a reader checked each one. sol-2's one suspect call runs
 `python3 -I -c` to fetch and parse the Comptroller's public list of registered data centers
@@ -22,18 +23,29 @@ prior context says "none" and adds that nothing in its context mentions these qu
 Each Sol run's main thread spawned three sub-agents, and its transcript omits their calls.
 `scripts/audit_codex_sessions.py` audits all 24 Sol threads from the lanes' session logs. It finds no
 violations and three more suspect calls, all from sub-agents and all aimed at the same Comptroller
-list. sol-3's `texas_baselines` helper ran a `python -` heredoc, which stopped at once with the
-shell's error "can't create temp file for here document", then a `python -c` fetch; sol-6's
-`texas_policy` helper ran a `python3 -c` fetch. A reader checked all three: each only fetches and
-parses that public page, and none reads a local file. Both fetches, like sol-2's, failed to resolve
-the host name, so no call returned any data. Had `audit` seen these calls, the pooled run would have
-needed `--accept-suspect sol-3 --accept-suspect sol-6` as well; the reader accepts both, so the
-pooled outputs stand.
+list. sol-3's `texas_baselines` helper tried a `python -` heredoc, which the shell refused before
+Python started ("can't create temp file for here document"), then ran a `python -c` that fetches
+the page and prints its length and first 200 characters. sol-6's `texas_policy` helper ran a
+`python3 -c` that fetches the page, counts its rows and prints those dated 2026. A reader checked
+all three: none reads a local file. Both fetches, like sol-2's, failed to resolve the host name, so
+no call returned any data.
+
+`i86 simulate` now reads those audits too. It pools a Codex run only if its session audit passed,
+and a suspect call in any of the run's threads keeps it out until a reader accepts it, so pooling
+these runs takes `--accept-suspect sol-3 --accept-suspect sol-6` as well; the reader accepts both.
+With those flags, every output matches the pooled folder's byte for byte except two cells of
+`outputs/summary.md`: the Suspect calls of sol-3 (now 2) and sol-6 (now 1).
+`2026-11-03-repooled/` stamps the result.
 
 `2026-11-03-dispatch/SHA256SUMS.ots` holds the proof as `ots upgrade` completed it, with
 attestations from four calendars; the earliest sits in Bitcoin block 974415, mined at 17:20:45Z on
-11/03, before any run started. The pending proof it replaced stamped the same manifest.
+11/03, before any run started. The collected and pooled proofs sit in block 974441, mined at
+21:28:20Z on 11/03, before Texas polls close at 01:00Z on 11/04. Each upgraded proof replaced a
+pending proof of the same manifest. The codex-sessions and repooled proofs await their blocks.
 
 To check a manifest, run `shasum -a 256 -c prereg/<folder>/SHA256SUMS` from the repository root; it
-lists any file whose bytes have changed. `ots verify prereg/<folder>/SHA256SUMS.ots` checks the proof
-against a Bitcoin node once the calendars have anchored it (`ots upgrade` fetches the attestation).
+lists any file whose bytes have changed. Against today's files, the pooled and codex-sessions
+manifests flag `outputs/summary.md`, which the repooled run rewrote, and
+`git show f36db37:outputs/summary.md` gives the bytes they hashed.
+`ots verify prereg/<folder>/SHA256SUMS.ots` checks the proof against a Bitcoin node once the
+calendars have anchored it (`ots upgrade` fetches the attestation).
