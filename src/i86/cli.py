@@ -253,6 +253,9 @@ def cmd_prereg(args) -> int:
     PREREG.mkdir(exist_ok=True)
     sums = PREREG / "SHA256SUMS"
     sums.write_text("\n".join(lines) + "\n")
+    # The previous proof stamps the previous manifest, which its dated folder keeps. `ots stamp`
+    # will not overwrite it, and left in place it would sit beside a manifest it does not prove.
+    (PREREG / "SHA256SUMS.ots").unlink(missing_ok=True)
     print(f"{len(lines)} files hashed into {sums.relative_to(ROOT)}")
     if args.no_stamp:
         return 0

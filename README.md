@@ -66,10 +66,12 @@ forecaster thinks Hinojosa's chances are. The two cutoff simulations share rando
 ## Timing
 
 Texas polls close at 7 p.m. local time: 01:00 UTC on November 4 in most of the state, an hour later in
-El Paso and Hudspeth counties. Every run must finish before then; `abandon` marks any run still going at
-00:50Z after it is killed. The prompt bars vote counts and results and asks a forecaster to note any it
-comes across. `prereg/` holds SHA-256 hashes of the map, prompt, context, runs and outputs, stamped with
-OpenTimestamps.
+El Paso and Hudspeth counties. Every run must finish before then. `scripts/deadline_guard.py` cancels
+any run not started by 23:00Z and kills any still going at 00:50Z, and `abandon` marks each one. The
+prompt bars vote counts and results and asks a forecaster to note any it comes across. `prereg/` holds
+SHA-256 hashes of the map, prompt, context, runs and outputs, stamped with OpenTimestamps.
+`scripts/seal.py --now` collects, checks, audits and stamps the answers once every run has finished;
+a launchd copy of it does the same from 23:20Z if no one has.
 
 ## Run it
 
