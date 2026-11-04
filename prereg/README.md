@@ -47,6 +47,8 @@ of the same manifest, and `SHA256SUMS.ots` at the top matches the repooled one.
 To check a manifest, run `shasum -a 256 -c prereg/<folder>/SHA256SUMS` from the repository root; it
 lists any file whose bytes have changed. Against today's files, the pooled and codex-sessions
 manifests flag `outputs/summary.md`, which the repooled run rewrote, and
-`git show f36db37:outputs/summary.md` gives the bytes they hashed.
+`git show f36db37:outputs/summary.md` gives the bytes they hashed. The codex-sessions and repooled
+manifests, and `SHA256SUMS` at the top, also hash the Sol runs' 24 session logs. Those logs carry the
+lanes' account details and stay out of this repository, so `shasum -c` reports them missing.
 `ots verify prereg/<folder>/SHA256SUMS.ots` checks the proof against a Bitcoin node once the
 calendars have anchored it (`ots upgrade` fetches the attestation).

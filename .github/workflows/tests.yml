@@ -1,6 +1,6 @@
 name: tests
 
-# Manual only, so this private repository's macOS runs spend Actions minutes only when someone asks.
+# Manual only: run it from the Actions tab.
 on:
   workflow_dispatch:
 

@@ -111,10 +111,11 @@ spawned three sub-agents. They saw the same brief and searched the web from the 
 and read-only sandbox. `codex exec --json`, which `transcript.jsonl` records, carries only the main
 thread, so `audit` never sees the sub-agents' calls.
 `scripts/audit_codex_sessions.py` finds every thread behind a Codex run in its lane's session logs,
-keeps the logs in `runs/<label>/codex-sessions/`, audits each thread as `audit` audits a transcript,
-and flags any tool or item it cannot read. `i86 prereg` hashes those folders too. `simulate` pools a
-Codex run only if that audit passed, and a suspect call in any of its threads keeps the run out
-until a reader passes `--accept-suspect`.
+audits each thread as `audit` audits a transcript, flags any tool or item it cannot read, and writes
+the verdicts to `runs/<label>/codex-sessions/audit.json`. `i86 prereg` hashed the logs with the
+verdicts. The logs also carry the lanes' account details, so they stay out of this repository, and
+the stamped manifests keep their hashes. `simulate` pools a Codex run only if that audit passed, and
+a suspect call in any of its threads keeps the run out until a reader passes `--accept-suspect`.
 
 ## Files
 
@@ -122,8 +123,8 @@ until a reader passes `--accept-suspect`.
 - `context/brief.md`: the facts every forecaster gets, with sources.
 - `prompts/forecaster.md`: the generated prompt; `schemas/template.json`: the response template.
 - `runs/<label>/`: each run's prompt as sent, metadata, verbatim answer, transcript, parsed response and
-  audit. For a Codex run, `codex-sessions/` keeps the session log of every thread, sub-agents
-  included, and their audit.
+  audit. For a Codex run, `codex-sessions/audit.json` keeps the audit of every thread, sub-agents
+  included.
 - `scripts/`: `rd_summary.py` writes the raw-answer contrasts in `outputs/rd.*`; `seal.py` and
   `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits every
   thread of a Codex run, the main thread and its sub-agents.

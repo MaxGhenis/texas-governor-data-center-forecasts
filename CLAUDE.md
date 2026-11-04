@@ -4,8 +4,10 @@ Independent agentic conditional forecasts of what the 2026 Texas governor's race
 construction, in Texas and nationwide, pooled through the causal map in `graph/graph.yaml`. Read
 `README.md` first.
 
-- The repository is private. Publish nothing from it (the repository, posts, a blog) without Max's
-  explicit OK.
+- This public repository leaves out the Sol runs' session logs
+  (`runs/sol-*/codex-sessions/rollout-*.jsonl`), which carry the lanes' account details; the private
+  repository MaxGhenis/tx-gov-datacenter-forecast keeps them. Never add them here, and post nothing in
+  Max's name without his explicit OK.
 - Logged runs are append-only. Never edit `runs/*/response.md`, `response.json` or `meta.json` after a
   run is collected; add a new run instead. Pre-registered hashes and timestamps live in `prereg/`.
 - Changing `graph/graph.yaml`, `context/` or `src/i86/prompt.py` changes the prompt. Regenerate it with
