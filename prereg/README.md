@@ -10,7 +10,7 @@ manifest and its proof; `SHA256SUMS` and `SHA256SUMS.ots` at the top are the lat
 |---|---|---|
 | `2026-11-03-dispatch/` | 17:04Z 11/03 | the map, prompt, template and brief, before the first dispatch |
 | `2026-11-03-collected/` | 20:50Z 11/03 | every run's answer, parsed response, audit and transcript, collected once the last run had finished |
-| `2026-11-03-pooled/` | 20:54Z 11/03 | the above plus `outputs/` from `i86 simulate --accept-suspect sol-2 --accept-prior opus-3 --accept-prior sol-1 --accept-prior sol-2 --accept-prior sol-3 --accept-prior sol-4 --accept-prior sol-6` (seed 0, 20,000 draws), and `scripts/rd_summary.py` |
+| `2026-11-03-pooled/` | 20:54Z 11/03 | the above plus `outputs/` from `i86 simulate --accept-suspect sol-2 --accept-prior opus-3 --accept-prior sol-1 --accept-prior sol-2 --accept-prior sol-3 --accept-prior sol-4 --accept-prior sol-6` (seed 0, 20,000 draws), and the fit outputs that `scripts/rd_summary.py` writes (`outputs/rd.csv`, `outputs/rd.md`) |
 | `2026-11-03-codex-sessions/` | 21:50Z 11/03 | the above, unchanged, plus each Sol run's `codex-sessions/`: the session logs of its main thread and its three sub-agents, and their audit from `scripts/audit_codex_sessions.py` |
 | `2026-11-03-repooled/` | 22:27Z 11/03 | the above with `outputs/` pooled again under the gate that reads the session audits, by the pooled folder's command plus `--accept-suspect sol-3 --accept-suspect sol-6`; only `outputs/summary.md` changed |
 
