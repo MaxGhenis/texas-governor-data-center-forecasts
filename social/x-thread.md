@@ -19,10 +19,14 @@ Alt text: For four Texas decisions on data centers, the forecasters give a chanc
 
 Against a one-point loss, they expect a one-point win to leave 10% fewer megawatts of large power users with ERCOT approval at the end of 2028. They forecast 11% fewer data center projects registering for Texas sales tax breaks in 2027, and 1% less US data center construction.
 
+Image: social/images/thread-quantities.png (social/make_quantity_chart.py draws it from outputs/summary.json)
+
+Alt text: For five measures of data center growth, the forecasters, on average, expect these amounts if Abbott wins, if Hinojosa wins, after a one-point Hinojosa loss and after a one-point Hinojosa win. Megawatts of large power users that ERCOT has approved to switch on, at the end of 2027: 18,100, 15,800, 17,600 and 16,100. At the end of 2028: 27,800, 23,700, 27,000 and 24,200. Data center projects the Texas Comptroller registers for sales tax breaks, effective in 2027: 60, 50, 58 and 52. Private construction spending on US data centers in 2027: $124.8, $122.0, $123.9 and $122.8 billion. In 2028: $156.7, $152.3, $155.1 and $153.5 billion. From a one-point loss to a one-point win, the forecasts fall 8.6% and 10.3% for megawatts, 10.7% for projects, and 0.9% and 1.1% for construction spending.
+
 ## 4
 
 The forecasters read a bigger Hinojosa margin as news about voters, so nationally they weigh the margin more than the winner. From a 12-point loss to a 12-point win, they expect about $11 billion less US data center construction in 2028, $1.6 billion of it from winning.
 
 ## 5
 
-The forecasters, six runs each of Claude Opus 5.5 and GPT-6.1 Sol, researched the race today and answered 13 questions, most at six results from a 12-point Hinojosa loss to a 12-point win.
+The forecasters, six runs each of Claude Opus 5.5 and GPT-6.1 Sol, researched the race today and answered 13 questions, most at six results from a 12-point Hinojosa loss to a 12-point win. The repo holds every prompt and answer, with Bitcoin timestamps that show the answers came before any results: https://github.com/MaxGhenis/texas-governor-data-center-forecasts
