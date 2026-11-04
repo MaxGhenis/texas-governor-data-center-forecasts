@@ -127,8 +127,13 @@ a suspect call in any of its threads keeps the run out until a reader passes `--
   included.
 - `scripts/`: `rd_summary.py` writes the raw-answer contrasts in `outputs/rd.*`; `seal.py` and
   `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits every
-  thread of a Codex run, the main thread and its sub-agents.
+  thread of a Codex run, the main thread and its sub-agents; `by_share.py` pools the answers at fixed
+  Hinojosa shares.
 - `outputs/`: pooled summaries (`summary.md`, `summary.json`, `nodes.csv`, `runs.csv`) and `plots/`.
+  `outputs/after-the-vote/by_share.json`, written after the vote, gives the pooled means at each of the
+  six shares and at Hinojosa's two-party share in the NBC News count its `count` field records.
+- `blog/`: the blog post's chart, `images/forecasts-by-share.svg`, and `make_share_chart.py`, which
+  draws it from `by_share.json`.
 - `prereg/`: hashes and timestamps.
 - `src/i86/`: map loading, response checks, samplers, simulator, pooling, report, runners and audit.
 - `tests/`: the source repository's tests. Most run on its DC Initiative 86 map, kept as
@@ -137,9 +142,11 @@ a suspect call in any of its threads keeps the run out until a reader passes `--
 ## What the numbers are
 
 They are model forecasts under stated scenarios. They are not observations, and the cutoff contrast is
-not an observed causal estimate. The questions resolve against public records from mid-2027 to mid-2029.
-Quantity tails beyond the 5th and 95th percentiles extend the neighbouring slope, so means of heavy
-right tails run low.
+not an observed causal estimate. The questions about data centers resolve against public records from
+mid-2027 to mid-2029, and the vote questions against the state's canvass of the November 3 election.
+Beyond the 5th and 95th percentiles, each quantity's distribution continues the neighbouring segment's
+slope until its probability runs out, a quarter of that segment's width, so the simulator can understate
+the mean of a heavy right tail.
 
 ## Provenance
 
