@@ -1,19 +1,20 @@
-"""Draw the blog post's chart of the pooled forecasts at each Hinojosa share, from outputs/after-the-vote/by_share.json.
+"""Draw the blog post's chart of the pooled forecasts at each Hinojosa share, from outputs/after-the-vote/exact_by_share.json.
 
     python3 blog/make_share_chart.py
     rsvg-convert -z 2 -b white blog/images/forecasts-by-share.svg -o blog/images/forecasts-by-share.png
 
-Each panel shows one question's pooled mean at the six shares the forecasters answered at, draws on
-each side of 50% the least-squares line through that side's three shares and runs it to 50%, and
-marks the mean at Hinojosa's share in the NBC News count that by_share.json records. The gap between
-the two lines at 50% is the jump the blog post reports. Each panel's axis starts at zero.
+Each panel shows one question's pooled forecast at the six shares the forecasters answered at, exact
+rather than drawn (scripts/exact_by_share.py), draws on each side of 50% the least-squares line through
+that side's three shares and runs it to 50%, and marks the forecast at Hinojosa's share in the NBC
+News count that exact_by_share.json records. The gap between the two lines at 50% is the jump the blog
+post reports. Each panel's axis starts at zero.
 """
 import json
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = json.loads((ROOT / "outputs" / "after-the-vote" / "by_share.json").read_text())
+DATA = json.loads((ROOT / "outputs" / "after-the-vote" / "exact_by_share.json").read_text())
 OUT = ROOT / "blog" / "images" / "forecasts-by-share.svg"
 
 ABBOTT, HINOJOSA = "#eb6834", "#2a78d6"
@@ -55,7 +56,7 @@ def mean(share: float, node: str, scale: float) -> float:
 
 
 def fit_at(cells: list, node: str, scale: float, share: float) -> float:
-    """The least-squares line through one side's three pooled means, evaluated at `share`."""
+    """The least-squares line through one side's three pooled forecasts, evaluated at `share`."""
     ys = [mean(s, node, scale) for s in cells]
     mx, my = sum(cells) / len(cells), sum(ys) / len(ys)
     slope = sum((s - mx) * (y - my) for s, y in zip(cells, ys)) / sum((s - mx) ** 2 for s in cells)

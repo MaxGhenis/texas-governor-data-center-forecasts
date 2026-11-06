@@ -1,4 +1,5 @@
-"""blog/images/forecasts-by-share.svg must match blog/make_share_chart.py, and every dot must sit inside its panel."""
+"""blog/images/forecasts-by-share.svg must match a fresh run of blog/make_share_chart.py, and every dot must sit
+inside its panel."""
 import importlib.util
 import re
 from pathlib import Path
@@ -9,7 +10,7 @@ chart = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(chart)
 
 
-def test_committed_svg_matches_by_share():
+def test_committed_svg_matches_the_chart_script():
     assert chart.OUT.read_text() == chart.svg()
 
 

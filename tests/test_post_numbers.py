@@ -9,10 +9,10 @@ Invariants, for every input:
 
 Differential checks: the chart's fit and the fit script's stored jumps agree with `line_at`.
 
-Regression checks pin forecast figures the post takes from by_share.json and the fit script, so a re-pool
-that moves one past its rounding fails here until someone changes this table, and the post with it. They
-compare the data with this table and never read the post, so a typo in the post still passes. Names that
-start with MOCK_ mark random inputs, not forecasts.
+Regression checks pin forecast figures the post takes from exact_by_share.json and the fit script, so a
+re-pool that moves one past its rounding fails here until someone changes this table, and the post with it.
+They compare the data with this table and never read the post, so a typo in the post still passes. Names
+that start with MOCK_ mark random inputs, not forecasts.
 """
 import csv
 import importlib.util
@@ -82,9 +82,10 @@ POST_FIGURES = [
     ("other_state_moratorium", "all", 100, "loss", 0, 66),
     ("other_state_moratorium", "all", 100, "win", 0, 67),
     ("other_state_moratorium", "all", 100, "at_56", 0, 73),
-    ("us_dc_spending_2028", "all", 1, "loss", 1, 154.9),
-    ("us_dc_spending_2028", "all", 1, "win", 1, 154.1),
-    ("us_dc_spending_2028", "all", 1, "at_56", 1, 146.7),
+    ("us_dc_spending_2028", "all", 1, "loss", 1, 155.1),
+    ("us_dc_spending_2028", "all", 1, "win", 1, 154.3),
+    ("us_dc_spending_2028", "all", 1, "at_56", 1, 146.9),
+    # The chart labels its ring at the count's share with this figure.
     ("us_dc_spending_2028", "all", 1, "at_count", 0, 150),
 ]
 HEADLINES = [
@@ -179,17 +180,48 @@ def test_the_post_cites_this_figure(node, group, scale, measure, digits, figure)
 
 
 @pytest.mark.parametrize("node,scale,model,low,high", [
-    ("ercot_pause_lifted", 100, "opus", 38, 50),
-    ("ercot_pause_lifted", 100, "sol", 62, 81),
+    ("ercot_pause_lifted", 100, "opus", 37, 49),
+    ("ercot_pause_lifted", 100, "sol", 62, 80),
     ("special_session_data_centers", 100, "opus", 26, 46),
-    ("special_session_data_centers", 100, "sol", 60, 65),
-    ("us_dc_spending_2028", 1, "opus", 97, 150),
-    ("us_dc_spending_2028", 1, "sol", 165, 188),
+    ("special_session_data_centers", 100, "sol", 59, 65),
+    ("us_dc_spending_2028", 1, "opus", 97, 149),
+    ("us_dc_spending_2028", 1, "sol", 165, 189),
 ])
 def test_the_post_cites_this_range_across_a_models_runs_at_the_count(node, scale, model, low, high):
     at_count = [numbers.value(numbers.DATA["count_share"], node, r, scale) for r in RUNS if r.startswith(model)]
     assert len(at_count) == 6
+    assert numbers.count_range(node, model, scale) == (min(at_count), max(at_count))
     assert (round(min(at_count)), round(max(at_count))) == (low, high)
+
+
+def test_the_post_cites_this_range_of_slope_ratios():
+    ratios = [r for node in numbers.SLOPE_QUESTIONS for r in numbers.slope_ratios(node)]
+    assert len(ratios) == 6
+    assert (round(min(ratios), 1), round(max(ratios), 1)) == (3.3, 4.3)
+
+
+def test_the_slope_ratios_divide_the_models_average_lines():
+    for node in numbers.SLOPE_QUESTIONS:
+        for cells, ratio in zip((LOSS, WIN), numbers.slope_ratios(node)):
+            per_run = {m: statistics.fmean(statistics.linear_regression(
+                cells, [numbers.value(s, node, r, 1) for s in cells]).slope for r in RUNS if r.startswith(m))
+                for m in ("opus", "sol")}
+            assert close(ratio, per_run["sol"] / per_run["opus"], ratio)
+
+
+@pytest.mark.parametrize("key,group,digits,figure", [
+    ("p_win", "all", 2, 0.26),
+    ("p_above_53", "all", 2, 0.04),
+])
+def test_the_post_cites_this_chance(key, group, digits, figure):
+    assert round(numbers.vote(key, group), digits) == figure
+
+
+@pytest.mark.parametrize("model,low,high", [("opus", 0.20, 0.35), ("sol", 0.21, 0.33)])
+def test_the_post_cites_this_range_of_chances_of_a_win(model, low, high):
+    wins = [numbers.vote("p_win", r) for r in numbers.runs(model)]
+    assert len(wins) == 6
+    assert (round(min(wins), 2), round(max(wins), 2)) == (low, high)
 
 
 def test_the_counts_percentages_and_votes_give_the_same_share():

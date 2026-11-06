@@ -129,13 +129,16 @@ a suspect call in any of its threads keeps the run out unless the command passes
 - `scripts/`: `rd_summary.py` writes the raw-answer contrasts in `outputs/rd.*`; `seal.py` and
   `deadline_guard.py` seal the answers and enforce the deadline; `audit_codex_sessions.py` audits every
   thread of a Codex run, the main thread and its sub-agents; `by_share.py` pools the answers at fixed
-  Hinojosa shares.
+  Hinojosa shares from 20,000 draws per run, and `exact_by_share.py` computes the same pooled
+  forecasts exactly, with no draws.
 - `outputs/`: pooled summaries (`summary.md`, `summary.json`, `nodes.csv`, `runs.csv`) and `plots/`.
   `outputs/after-the-vote/by_share.json`, written after the vote, gives the pooled means at each of the
   six shares and at Hinojosa's two-party share in the NBC News count its `count` field records.
+  `exact_by_share.json` beside it gives the same forecasts computed exactly, and its script checks each
+  run's against `by_share.json`.
 - `blog/`: the blog post's chart, `images/forecasts-by-share.svg`; `make_share_chart.py`, which draws
-  it from `by_share.json`; and `post_numbers.py`, which prints most of the post's forecast figures from
-  the same file.
+  it from `exact_by_share.json`; and `post_numbers.py`, which prints every figure the post takes from
+  that file.
 - `prereg/`: hashes and timestamps.
 - `src/i86/`: map loading, response checks, samplers, simulator, pooling, report, runners and audit.
 - `tests/`: the source repository's tests. Most run on its DC Initiative 86 map, kept as
