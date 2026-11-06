@@ -111,7 +111,8 @@ def test_pooling_takes_only_current_prompt_audited_runs_with_no_prior_context(ar
 
 
 def test_a_run_with_suspect_calls_is_pooled_only_once_the_operator_lists_it(area, graph, capsys):
-    """Round-12 finding 3 (Opus): a suspect call may have read anything, so its run waits for a reader."""
+    """Round-12 finding 3 (Opus): a suspect call may have read anything, so its run stays out until
+    the command accepts it."""
     _accepted_run(graph, "ok")
     call = {"tool": "Bash", "call": '{"command": "MOCK command"}', "why": "MOCK reason"}
     _accepted_run(graph, "odd-call", suspect=[call, call])

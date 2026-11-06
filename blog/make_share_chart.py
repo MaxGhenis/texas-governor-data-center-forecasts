@@ -3,11 +3,13 @@
     python3 blog/make_share_chart.py
     rsvg-convert -z 2 -b white blog/images/forecasts-by-share.svg -o blog/images/forecasts-by-share.png
 
-Each panel shows one question's pooled mean at the six shares the forecasters answered at, joined on
-each side of 50% as the simulator interpolates them, and marks the mean at Hinojosa's share in the
-November 4 count. Each panel's axis starts at zero.
+Each panel shows one question's pooled mean at the six shares the forecasters answered at, draws on
+each side of 50% the least-squares line through that side's three shares and runs it to 50%, and
+marks the mean at Hinojosa's share in the NBC News count that by_share.json records. The gap between
+the two lines at 50% is the jump the blog post reports. Each panel's axis starts at zero.
 """
 import json
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,22 +20,24 @@ ABBOTT, HINOJOSA = "#eb6834", "#2a78d6"
 INK, MUTED, GRID, PAPER = "#0b0b0b", "#52514e", "#e6e5e1", "#fcfcfb"
 TITLE = "What the forecasters expect at each Hinojosa share of the vote"
 FOOTER = ("Six runs each of Claude Opus 5.5 and GPT-6.1 Sol forecast each question at six shares on Nov 3, 2026, before polls closed.",
-          "Each dot marks the average of the 12 runs' forecasts; lines join the dots on each side of 50%.")
+          "Each dot marks the average of the 12 runs' forecasts, and each line fits the three dots on its side of 50%.")
 ABBOTT_CELLS, HINOJOSA_CELLS = [0.44, 0.47, 0.495], [0.505, 0.53, 0.56]
 COUNT = DATA["count_share"]
+COUNT_DATE = datetime.fromisoformat(DATA["count"]["as_of"])
+COUNT_DAY = f"{COUNT_DATE:%b} {COUNT_DATE.day}"
 COLUMNS = [16, 266, 516]
 ROWS = [70, 252]
 PLOT_LEFT, PLOT_RIGHT, PLOT_TOP, PLOT_HEIGHT = 46, 232, 38, 110
 
 # (header lines, node, axis maximum, ticks, scale from stored value to axis units, label at the count)
 PANELS = [
-    (("ERCOT resumes approving data centers", "to energize by June 30, 2027"), "ercot_pause_lifted",
+    (("ERCOT resumes approving data centers", "to switch on by June 30, 2027"), "ercot_pause_lifted",
      100, [0, 50, 100], 100, lambda v: f"{v:.0f}%"),
     (("The governor calls a special session", "on data centers by the end of 2027"), "special_session_data_centers",
      100, [0, 50, 100], 100, lambda v: f"{v:.0f}%"),
     (("Texas enacts a law adding limits on", "data centers by the end of 2027"), "restriction_law",
      100, [0, 50, 100], 100, lambda v: f"{v:.0f}%"),
-    (("Megawatts ERCOT has approved to", "energize, at the end of 2028"), "ercot_approved_mw_2028",
+    (("Megawatts ERCOT has approved to", "switch on, at the end of 2028"), "ercot_approved_mw_2028",
      30000, [0, 10000, 20000, 30000], 1, lambda v: f"{round(v, -2):,.0f}"),
     (("Projects the Comptroller registers for", "data center tax breaks, effective 2027"), "comptroller_new_projects_2027",
      70, [0, 20, 40, 60], 1, lambda v: f"{v:.0f}"),
@@ -48,6 +52,14 @@ def tick_label(t: float, top: float) -> str:
 
 def mean(share: float, node: str, scale: float) -> float:
     return scale * DATA["by_share"][str(share)][node]["all"]
+
+
+def fit_at(cells: list, node: str, scale: float, share: float) -> float:
+    """The least-squares line through one side's three pooled means, evaluated at `share`."""
+    ys = [mean(s, node, scale) for s in cells]
+    mx, my = sum(cells) / len(cells), sum(ys) / len(ys)
+    slope = sum((s - mx) * (y - my) for s, y in zip(cells, ys)) / sum((s - mx) ** 2 for s in cells)
+    return my + slope * (share - mx)
 
 
 def dot(x, y, color, filled):
@@ -71,14 +83,18 @@ def panel(col_x: int, row_y: int, spec) -> list:
         out.append(f'<text x="{sx(s):.1f}" y="{y_bottom + 16}" font-size="11" fill="{MUTED}" text-anchor="middle">{s:.0%}</text>')
     out.append(f'<line x1="{sx(0.5):.1f}" x2="{sx(0.5):.1f}" y1="{y_top}" y2="{y_bottom}" stroke="{MUTED}" stroke-width="1"/>')
     out.append(f'<line x1="{sx(COUNT):.1f}" x2="{sx(COUNT):.1f}" y1="{y_top}" y2="{y_bottom}" stroke="{MUTED}" stroke-width="1" stroke-dasharray="3 3"/>')
-    for cells, color in [(ABBOTT_CELLS, ABBOTT), (HINOJOSA_CELLS, HINOJOSA)]:
-        points = " ".join(f"{sx(s):.1f},{sy(mean(s, node, scale)):.1f}" for s in cells)
-        out.append(f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="2"/>')
+    for cells, color, side, (a, b) in [(ABBOTT_CELLS, ABBOTT, "Abbott", (0.44, 0.50)),
+                                       (HINOJOSA_CELLS, HINOJOSA, "Hinojosa", (0.50, 0.56))]:
+        ya, yb = fit_at(cells, node, scale, a), fit_at(cells, node, scale, b)
+        at50 = fit_at(cells, node, scale, 0.5)
+        out.append(f'<g><title>Least-squares line, {side} wins: {fmt(at50)} at 50%</title>'
+                   f'<line x1="{sx(a):.1f}" y1="{sy(ya):.1f}" x2="{sx(b):.1f}" y2="{sy(yb):.1f}" '
+                   f'stroke="{color}" stroke-width="2" stroke-linecap="round"/></g>')
         for s in cells:
             v = mean(s, node, scale)
             out.append(f'<g><title>{s:.1%} Hinojosa share: {fmt(v)}</title>{dot(sx(s), sy(v), color, True)}</g>')
     v = mean(COUNT, node, scale)
-    out.append(f'<g><title>{COUNT:.1%} Hinojosa share, in the Nov 4 count: {fmt(v)}</title>{dot(sx(COUNT), sy(v), HINOJOSA, False)}</g>')
+    out.append(f'<g><title>{COUNT:.1%} Hinojosa two-party share, in the {COUNT_DAY} count: {fmt(v)}</title>{dot(sx(COUNT), sy(v), HINOJOSA, False)}</g>')
     out.append(f'<text x="{sx(COUNT) + 8:.1f}" y="{sy(v) - 8:.1f}" font-size="12" font-weight="600" fill="{INK}">{fmt(v)}</text>')
     return out
 
@@ -100,7 +116,7 @@ def svg() -> str:
         f'<text x="158" y="50" font-size="12" fill="{INK}">Hinojosa wins</text>',
         f'<line x1="264" x2="264" y1="38" y2="54" stroke="{MUTED}" stroke-width="1" stroke-dasharray="3 3"/>',
         dot(264, 46, HINOJOSA, False),
-        f'<text x="274" y="50" font-size="12" fill="{INK}">At {COUNT:.1%}, Hinojosa\'s share in the Nov 4 count</text>',
+        f'<text x="274" y="50" font-size="12" fill="{INK}">At {COUNT:.1%}, Hinojosa\'s two-party share in the {COUNT_DAY} count</text>',
     ]
     foot = [f'<text x="380" y="{axis_y}" font-size="11" fill="{MUTED}" text-anchor="middle">Hinojosa\'s share of the two-party vote for governor</text>']
     foot += [f'<text x="16" y="{axis_y + 22 + 14 * i}" font-size="11" fill="{MUTED}">{line}</text>'
@@ -111,4 +127,5 @@ def svg() -> str:
 if __name__ == "__main__":
     OUT.write_text(svg())
     for (line1, line2), node, _, _, scale, fmt in PANELS:
-        print(f"{node}: " + "  ".join(f"{s}: {fmt(mean(s, node, scale))}" for s in ABBOTT_CELLS + HINOJOSA_CELLS + [COUNT]))
+        print(f"{node}: " + "  ".join(f"{s}: {fmt(mean(s, node, scale))}" for s in ABBOTT_CELLS + HINOJOSA_CELLS + [COUNT])
+              + f"  lines at 50%: {fmt(fit_at(ABBOTT_CELLS, node, scale, 0.5))} / {fmt(fit_at(HINOJOSA_CELLS, node, scale, 0.5))}")

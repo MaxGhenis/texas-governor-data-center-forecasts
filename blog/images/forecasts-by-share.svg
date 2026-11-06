@@ -9,9 +9,9 @@
 <text x="158" y="50" font-size="12" fill="#0b0b0b">Hinojosa wins</text>
 <line x1="264" x2="264" y1="38" y2="54" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
 <circle cx="264.0" cy="46.0" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/>
-<text x="274" y="50" font-size="12" fill="#0b0b0b">At 53.7%, Hinojosa's share in the Nov 4 count</text>
+<text x="274" y="50" font-size="12" fill="#0b0b0b">At 53.6%, Hinojosa's two-party share in the Nov 5 count</text>
 <text x="16" y="82" font-size="12" font-weight="600" fill="#0b0b0b">ERCOT resumes approving data centers</text>
-<text x="16" y="96" font-size="12" font-weight="600" fill="#0b0b0b">to energize by June 30, 2027</text>
+<text x="16" y="96" font-size="12" font-weight="600" fill="#0b0b0b">to switch on by June 30, 2027</text>
 <line x1="62" x2="248" y1="218.0" y2="218.0" stroke="#e6e5e1"/>
 <text x="56" y="222.0" font-size="11" fill="#52514e" text-anchor="end">0%</text>
 <line x1="62" x2="248" y1="163.0" y2="163.0" stroke="#e6e5e1"/>
@@ -24,17 +24,17 @@
 <text x="201.5" y="234" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="248.0" y="234" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="155.0" x2="155.0" y1="108" y2="218" stroke="#52514e" stroke-width="1"/>
-<line x1="212.4" x2="212.4" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="62.0,124.4 108.5,126.9 147.2,130.5" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="210.8" x2="210.8" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 79% at 50%</title><line x1="62.0" y1="124.2" x2="155.0" y2="130.7" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 85%</title><circle cx="62.0" cy="124.4" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 83%</title><circle cx="108.5" cy="126.9" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 80%</title><circle cx="147.2" cy="130.5" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="162.8,148.0 201.5,152.5 248.0,156.9" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 64% at 50%</title><line x1="155.0" y1="147.4" x2="248.0" y2="157.1" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 64%</title><circle cx="162.8" cy="148.0" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 60%</title><circle cx="201.5" cy="152.5" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 56%</title><circle cx="248.0" cy="156.9" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 59%</title><circle cx="212.4" cy="153.5" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="220.4" y="145.5" font-size="12" font-weight="600" fill="#0b0b0b">59%</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 59%</title><circle cx="210.8" cy="153.4" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="218.8" y="145.4" font-size="12" font-weight="600" fill="#0b0b0b">59%</text>
 <text x="266" y="82" font-size="12" font-weight="600" fill="#0b0b0b">The governor calls a special session</text>
 <text x="266" y="96" font-size="12" font-weight="600" fill="#0b0b0b">on data centers by the end of 2027</text>
 <line x1="312" x2="498" y1="218.0" y2="218.0" stroke="#e6e5e1"/>
@@ -49,17 +49,17 @@
 <text x="451.5" y="234" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="498.0" y="234" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="405.0" x2="405.0" y1="108" y2="218" stroke="#52514e" stroke-width="1"/>
-<line x1="462.4" x2="462.4" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="312.0,191.8 358.5,188.6 397.2,184.6" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="460.8" x2="460.8" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 31% at 50%</title><line x1="312.0" y1="192.0" x2="405.0" y2="184.2" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 24%</title><circle cx="312.0" cy="191.8" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 27%</title><circle cx="358.5" cy="188.6" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 30%</title><circle cx="397.2" cy="184.6" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="412.8,166.2 451.5,163.5 498.0,161.8" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 47% at 50%</title><line x1="405.0" y1="166.4" x2="498.0" y2="161.5" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 47%</title><circle cx="412.8" cy="166.2" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 50%</title><circle cx="451.5" cy="163.5" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 51%</title><circle cx="498.0" cy="161.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 50%</title><circle cx="462.4" cy="163.1" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="470.4" y="155.1" font-size="12" font-weight="600" fill="#0b0b0b">50%</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 50%</title><circle cx="460.8" cy="163.2" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="468.8" y="155.2" font-size="12" font-weight="600" fill="#0b0b0b">50%</text>
 <text x="516" y="82" font-size="12" font-weight="600" fill="#0b0b0b">Texas enacts a law adding limits on</text>
 <text x="516" y="96" font-size="12" font-weight="600" fill="#0b0b0b">data centers by the end of 2027</text>
 <line x1="562" x2="748" y1="218.0" y2="218.0" stroke="#e6e5e1"/>
@@ -74,19 +74,19 @@
 <text x="701.5" y="234" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="748.0" y="234" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="655.0" x2="655.0" y1="108" y2="218" stroke="#52514e" stroke-width="1"/>
-<line x1="712.4" x2="712.4" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="562.0,138.5 608.5,135.7 647.2,133.5" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="710.8" x2="710.8" y1="108" y2="218" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 77% at 50%</title><line x1="562.0" y1="138.5" x2="655.0" y2="133.0" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 72%</title><circle cx="562.0" cy="138.5" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 75%</title><circle cx="608.5" cy="135.7" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 77%</title><circle cx="647.2" cy="133.5" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="662.8,131.0 701.5,128.0 748.0,125.3" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 79% at 50%</title><line x1="655.0" y1="131.4" x2="748.0" y2="125.2" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 79%</title><circle cx="662.8" cy="131.0" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 82%</title><circle cx="701.5" cy="128.0" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 84%</title><circle cx="748.0" cy="125.3" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 82%</title><circle cx="712.4" cy="127.4" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="720.4" y="119.4" font-size="12" font-weight="600" fill="#0b0b0b">82%</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 82%</title><circle cx="710.8" cy="127.5" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="718.8" y="119.5" font-size="12" font-weight="600" fill="#0b0b0b">82%</text>
 <text x="16" y="264" font-size="12" font-weight="600" fill="#0b0b0b">Megawatts ERCOT has approved to</text>
-<text x="16" y="278" font-size="12" font-weight="600" fill="#0b0b0b">energize, at the end of 2028</text>
+<text x="16" y="278" font-size="12" font-weight="600" fill="#0b0b0b">switch on, at the end of 2028</text>
 <line x1="62" x2="248" y1="400.0" y2="400.0" stroke="#e6e5e1"/>
 <text x="56" y="404.0" font-size="11" fill="#52514e" text-anchor="end">0</text>
 <line x1="62" x2="248" y1="363.3" y2="363.3" stroke="#e6e5e1"/>
@@ -101,17 +101,17 @@
 <text x="201.5" y="416" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="248.0" y="416" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="155.0" x2="155.0" y1="290" y2="400" stroke="#52514e" stroke-width="1"/>
-<line x1="212.4" x2="212.4" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="62.0,293.6 108.5,296.9 147.2,300.9" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="210.8" x2="210.8" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 26,900 at 50%</title><line x1="62.0" y1="293.4" x2="155.0" y2="301.3" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 29,000</title><circle cx="62.0" cy="293.6" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 28,100</title><circle cx="108.5" cy="296.9" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 27,000</title><circle cx="147.2" cy="300.9" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="162.8,311.1 201.5,315.6 248.0,320.1" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 24,400 at 50%</title><line x1="155.0" y1="310.5" x2="248.0" y2="320.2" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 24,200</title><circle cx="162.8" cy="311.1" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 23,000</title><circle cx="201.5" cy="315.6" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 21,800</title><circle cx="248.0" cy="320.1" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 22,700</title><circle cx="212.4" cy="316.7" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="220.4" y="308.7" font-size="12" font-weight="600" fill="#0b0b0b">22,700</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 22,800</title><circle cx="210.8" cy="316.5" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="218.8" y="308.5" font-size="12" font-weight="600" fill="#0b0b0b">22,800</text>
 <text x="266" y="264" font-size="12" font-weight="600" fill="#0b0b0b">Projects the Comptroller registers for</text>
 <text x="266" y="278" font-size="12" font-weight="600" fill="#0b0b0b">data center tax breaks, effective 2027</text>
 <line x1="312" x2="498" y1="400.0" y2="400.0" stroke="#e6e5e1"/>
@@ -128,17 +128,17 @@
 <text x="451.5" y="416" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="498.0" y="416" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="405.0" x2="405.0" y1="290" y2="400" stroke="#52514e" stroke-width="1"/>
-<line x1="462.4" x2="462.4" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="312.0,300.7 358.5,304.3 397.2,308.6" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="460.8" x2="460.8" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 58 at 50%</title><line x1="312.0" y1="300.5" x2="405.0" y2="309.1" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 63</title><circle cx="312.0" cy="300.7" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 61</title><circle cx="358.5" cy="304.3" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 58</title><circle cx="397.2" cy="308.6" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="412.8,318.4 451.5,323.7 498.0,329.2" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 52 at 50%</title><line x1="405.0" y1="317.5" x2="498.0" y2="329.3" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 52</title><circle cx="412.8" cy="318.4" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 49</title><circle cx="451.5" cy="323.7" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 45</title><circle cx="498.0" cy="329.2" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 48</title><circle cx="462.4" cy="325.0" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="470.4" y="317.0" font-size="12" font-weight="600" fill="#0b0b0b">48</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 48</title><circle cx="460.8" cy="324.8" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="468.8" y="316.8" font-size="12" font-weight="600" fill="#0b0b0b">48</text>
 <text x="516" y="264" font-size="12" font-weight="600" fill="#0b0b0b">US private construction spending on</text>
 <text x="516" y="278" font-size="12" font-weight="600" fill="#0b0b0b">data centers in 2028 ($ billion)</text>
 <line x1="562" x2="748" y1="400.0" y2="400.0" stroke="#e6e5e1"/>
@@ -155,18 +155,18 @@
 <text x="701.5" y="416" font-size="11" fill="#52514e" text-anchor="middle">53%</text>
 <text x="748.0" y="416" font-size="11" fill="#52514e" text-anchor="middle">56%</text>
 <line x1="655.0" x2="655.0" y1="290" y2="400" stroke="#52514e" stroke-width="1"/>
-<line x1="712.4" x2="712.4" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
-<polyline points="562.0,300.4 608.5,301.3 647.2,302.5" fill="none" stroke="#eb6834" stroke-width="2"/>
+<line x1="710.8" x2="710.8" y1="290" y2="400" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<g><title>Least-squares line, Abbott wins: 155 at 50%</title><line x1="562.0" y1="300.3" x2="655.0" y2="302.6" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>44.0% Hinojosa share: 158</title><circle cx="562.0" cy="300.4" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>47.0% Hinojosa share: 157</title><circle cx="608.5" cy="301.3" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>49.5% Hinojosa share: 155</title><circle cx="647.2" cy="302.5" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/></g>
-<polyline points="662.8,303.5 701.5,305.3 748.0,307.8" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<g><title>Least-squares line, Hinojosa wins: 154 at 50%</title><line x1="655.0" y1="303.1" x2="748.0" y2="307.7" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/></g>
 <g><title>50.5% Hinojosa share: 153</title><circle cx="662.8" cy="303.5" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>53.0% Hinojosa share: 151</title><circle cx="701.5" cy="305.3" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
 <g><title>56.0% Hinojosa share: 147</title><circle cx="748.0" cy="307.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/></g>
-<g><title>53.7% Hinojosa share, in the Nov 4 count: 150</title><circle cx="712.4" cy="305.9" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
-<text x="720.4" y="297.9" font-size="12" font-weight="600" fill="#0b0b0b">150</text>
+<g><title>53.6% Hinojosa two-party share, in the Nov 5 count: 150</title><circle cx="710.8" cy="305.8" r="4" fill="#fcfcfb" stroke="#2a78d6" stroke-width="2"/></g>
+<text x="718.8" y="297.8" font-size="12" font-weight="600" fill="#0b0b0b">150</text>
 <text x="380" y="432" font-size="11" fill="#52514e" text-anchor="middle">Hinojosa's share of the two-party vote for governor</text>
 <text x="16" y="454" font-size="11" fill="#52514e">Six runs each of Claude Opus 5.5 and GPT-6.1 Sol forecast each question at six shares on Nov 3, 2026, before polls closed.</text>
-<text x="16" y="468" font-size="11" fill="#52514e">Each dot marks the average of the 12 runs' forecasts; lines join the dots on each side of 50%.</text>
+<text x="16" y="468" font-size="11" fill="#52514e">Each dot marks the average of the 12 runs' forecasts, and each line fits the three dots on its side of 50%.</text>
 </svg>

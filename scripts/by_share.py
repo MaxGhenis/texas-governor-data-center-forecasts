@@ -26,8 +26,9 @@ OUT = ROOT / "outputs" / "after-the-vote" / "by_share.json"
 ACCEPT_SUSPECT = {"sol-2", "sol-3", "sol-6"}
 ACCEPT_PRIOR = {"opus-3", "sol-1", "sol-2", "sol-3", "sol-4", "sol-6"}
 N = 20000
-# NBC News's count at 7:31 a.m. ET on November 4 (nbcnews.com/politics/2026-elections/texas-governor-results).
-COUNT = {"as_of": "2026-11-04T07:31-05:00", "hinojosa": 52.9, "abbott": 45.6, "expected_vote_in": 0.963}
+# NBC News's count at 3:34 p.m. ET on November 5 (nbcnews.com/politics/2026-elections/texas-governor-results).
+COUNT = {"as_of": "2026-11-05T15:34-05:00", "hinojosa": 52.8, "abbott": 45.7, "hinojosa_votes": 5230929,
+         "abbott_votes": 4524955, "expected_vote_in": 0.99}
 COUNT_SHARE = round(COUNT["hinojosa"] / (COUNT["hinojosa"] + COUNT["abbott"]), 3)
 SHARES = [0.44, 0.47, 0.495, 0.505, 0.53, COUNT_SHARE, 0.56]
 NODES = ["ercot_pause_lifted", "special_session_data_centers", "tax_exemption_cut", "restriction_law",

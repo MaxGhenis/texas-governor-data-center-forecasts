@@ -103,8 +103,9 @@ and in each run's `meta.json`, and `simulate` pools only runs made with the curr
 work in empty directories outside the repository, and the prompt tells them not to read local files.
 No answer enters the repository until every run has finished. `audit` flags tool calls that reach
 outside a run's work directory; a run with a suspect call, or whose `prior_context` mentions these
-questions, stays out of the pool until a reader checks it and passes `--accept-suspect` or
-`--accept-prior`. The source repository's README describes the audit in full.
+questions, stays out of the pool unless the `simulate` command passes `--accept-suspect` or
+`--accept-prior`. A Claude Opus 5.5 session read each flag before passing it. The source repository's
+README describes the audit in full.
 
 Codex ran every Sol run here with its proactive multi-agent mode on, and each run's main thread
 spawned three sub-agents. They saw the same brief and searched the web from the same work directory
@@ -115,7 +116,7 @@ audits each thread as `audit` audits a transcript, flags any tool or item it can
 the verdicts to `runs/<label>/codex-sessions/audit.json`. `i86 prereg` hashed the logs with the
 verdicts. The logs also carry the lanes' account details, so they stay out of this repository, and
 the stamped manifests keep their hashes. `simulate` pools a Codex run only if that audit passed, and
-a suspect call in any of its threads keeps the run out until a reader passes `--accept-suspect`.
+a suspect call in any of its threads keeps the run out unless the command passes `--accept-suspect`.
 
 ## Files
 
@@ -132,8 +133,9 @@ a suspect call in any of its threads keeps the run out until a reader passes `--
 - `outputs/`: pooled summaries (`summary.md`, `summary.json`, `nodes.csv`, `runs.csv`) and `plots/`.
   `outputs/after-the-vote/by_share.json`, written after the vote, gives the pooled means at each of the
   six shares and at Hinojosa's two-party share in the NBC News count its `count` field records.
-- `blog/`: the blog post's chart, `images/forecasts-by-share.svg`, and `make_share_chart.py`, which
-  draws it from `by_share.json`.
+- `blog/`: the blog post's chart, `images/forecasts-by-share.svg`; `make_share_chart.py`, which draws
+  it from `by_share.json`; and `post_numbers.py`, which prints most of the post's forecast figures from
+  the same file.
 - `prereg/`: hashes and timestamps.
 - `src/i86/`: map loading, response checks, samplers, simulator, pooling, report, runners and audit.
 - `tests/`: the source repository's tests. Most run on its DC Initiative 86 map, kept as

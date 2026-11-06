@@ -14,8 +14,8 @@ manifest and its proof; `SHA256SUMS` and `SHA256SUMS.ots` at the top are the lat
 | `2026-11-03-codex-sessions/` | 21:50Z 11/03 | the above, unchanged, plus each Sol run's `codex-sessions/`: the session logs of its main thread and its three sub-agents, and their audit from `scripts/audit_codex_sessions.py` |
 | `2026-11-03-repooled/` | 22:27Z 11/03 | the above with `outputs/` pooled again under the gate that reads the session audits, by the pooled folder's command plus `--accept-suspect sol-3 --accept-suspect sol-6`; only `outputs/summary.md` changed |
 
-The pooled run accepts two kinds of flag after a reader checked each one. sol-2's one suspect call runs
-`python3 -I -c` to fetch and parse the Comptroller's public list of registered data centers
+The pooled run accepts two kinds of flag after a Claude Opus 5.5 session read each one. sol-2's one suspect
+call runs `python3 -I -c` to fetch and parse the Comptroller's public list of registered data centers
 (comptroller.texas.gov/taxes/data-centers/data-center-lists.php); it reads no local file. opus-3's
 prior context says "none" and adds that nothing in its context mentions these questions; sol-1, 2, 3,
 4 and 6 quote only their work directory's name, which repeats the brief's subject.
@@ -26,13 +26,13 @@ violations and three more suspect calls, all from sub-agents and all aimed at th
 list. sol-3's `texas_baselines` helper tried a `python -` heredoc, which the shell refused before
 Python started ("can't create temp file for here document"), then ran a `python -c` that fetches
 the page and prints its length and first 200 characters. sol-6's `texas_policy` helper ran a
-`python3 -c` that fetches the page, counts its rows and prints those dated 2026. A reader checked
+`python3 -c` that fetches the page, counts its rows and prints those dated 2026. That session read
 all three: none reads a local file. Both fetches, like sol-2's, failed to resolve the host name, so
 no call returned any data.
 
 `i86 simulate` now reads those audits too. It pools a Codex run only if its session audit passed,
-and a suspect call in any of the run's threads keeps it out until a reader accepts it, so pooling
-these runs takes `--accept-suspect sol-3 --accept-suspect sol-6` as well; the reader accepts both.
+and a suspect call in any of the run's threads keeps it out unless the command accepts it, so pooling
+these runs takes `--accept-suspect sol-3 --accept-suspect sol-6` as well.
 With those flags, every output matches the pooled folder's byte for byte except two cells of
 `outputs/summary.md`: the Suspect calls of sol-3 (now 2) and sol-6 (now 1).
 `2026-11-03-repooled/` stamps the result.
